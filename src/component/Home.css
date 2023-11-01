@@ -1,0 +1,133 @@
+/* 
+*{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+} */
+
+/* General styles */
+
+/*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=ffc536&c2=fffbf5&gt=r&gd=dtl
+*/
+
+.box {
+    display: flex;
+    justify-content: space-between;
+    /* background: #ffc536; */
+    background-color:radial-gradient(
+        at left top, #FFC536, #FFFBF5
+        
+);
+    height: auto;
+  }
+  
+  .img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .model-1 {
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 70%;
+    
+  }
+  
+  .text-1 {
+   display: flex;
+flex-wrap: wrap;
+    /* flex-basis: 30%; */
+    padding: 20px;
+  }
+ 
+  .model-1 img {
+    width: 900px; 
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  
+  @media screen and (max-width: 768px) {
+    .box {
+      flex-direction: column;
+    }
+  
+    .text-1,
+    .model-1 {
+      flex-basis: 100%;
+    }
+  
+    .model-1 img {
+      max-width: 100%; 
+    }
+  }
+  .paragraph{
+
+    flex-basis: 50%;
+  }
+  .heading,.paragraph,.btn{
+    width: 100%;
+
+  }
+  
+  .heading,.paragraph{
+    padding: 0;
+    margin: 0;
+  }
+  .heading{
+    margin-top: 200px;
+    font-family: cursive;
+  }
+
+  .btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .mdbtn{
+    flex-basis: 10%;
+  }
+
+ .container-card{
+    display: flex;
+    flex-direction: row;
+padding: 10px;
+    width: 100%;
+    height: auto;
+    background-color: #001524;
+    flex-wrap: wrap;
+    justify-content: center;
+ }
+ .para-1{
+    margin: 10px;
+    padding: 10px;
+    height: 250px;
+    width:250px ;
+   background-color:#FFC436;
+    color:#001524;
+    border-top-right-radius: 5%;
+    text-align: justify;
+    display: flex;
+   min-height: 300px;
+   max-width: 400px;
+  cursor: pointer;
+  /* transition: background-color 0.4s, color 0.4s, height 0.4s, width 0.4s; */
+    
+ }
+ .para_1_text{
+    padding: 10px;
+
+ }
+ .para-1:hover{
+    background-color:#618264;
+    color: white;
+
+ }

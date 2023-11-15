@@ -1,5 +1,6 @@
 
 import './App.css'
+import Footer from './component/Footer';
 import Home from './component/Home';
 import Navbar from './component/Navbar'
 function App() {
@@ -11,7 +12,7 @@ function App() {
       <div style={{backgroundColor:"red",width:"100%",height:"300px"}}>
 
       </div>
-    
+    <Footer/>
     </div>
   );
 }

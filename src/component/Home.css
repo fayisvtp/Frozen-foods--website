@@ -12,45 +12,45 @@
 * Gradient link: https://www.css-gradient.com/?c1=ffc536&c2=fffbf5&gt=r&gd=dtl
 */
 
-.box {
+/* .box {
     display: flex;
     justify-content: space-between;
-    /* background: #ffc536; */
+  
     background-color:radial-gradient(
         at left top, #FFC536, #FFFBF5
         
 );
     height: auto;
-  }
+  } */
   
-  .img-container {
+  /* .img-container {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+  } */
   
-  .model-1 {
+  /* .model-1 {
   
     display: flex;
     justify-content: center;
     align-items: center;
     flex-basis: 70%;
     
-  }
+  } */
   
-  .text-1 {
+  /* .text-1 {
    display: flex;
 flex-wrap: wrap;
-    /* flex-basis: 30%; */
+    
     padding: 20px;
-  }
+  } */
  
-  .model-1 img {
+  /* .model-1 img {
     width: 900px; 
     max-width: 500px;
     height: auto;
     object-fit: cover;
-  }
+  } */
   
   
   @media screen and (max-width: 768px) {

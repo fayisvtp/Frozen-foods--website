@@ -1,0 +1,49 @@
+.container-card {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    width: 100%;
+    height: auto;
+    background-color: #001524;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .para-1 {
+    margin: 10px;
+    padding: 10px;
+    height: 250px;
+    width: 250px;
+    background-color: #FFC436;
+    color: #001524;
+    border-top-right-radius: 5%;
+    text-align: justify;
+    display: flex;
+    min-height: 300px;
+    max-width: 400px;
+    cursor: pointer;
+    position: relative; /* To position the pseudo-element */
+  
+  }
+  
+  .para-1::before {
+    content: "Your Pseudo Text"; /* Add your pseudo content here */
+    position: absolute;
+    top: -30px; /* Adjust this value to move it above the para-1 div */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FFF; /* Pseudo background color */
+    color: #000; /* Pseudo text color */
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .para_1_text {
+    padding: 10px;
+  }
+  
+  .para-1:hover {
+    background-color: #618264;
+    color: white;
+  }
+  

@@ -1,0 +1,146 @@
+.banner-container {
+  width: 100%;
+  height: auto;
+  padding: 0 2rem 2rem 2rem;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2rem;
+  background-image: url(./bg.png);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.div-1 {
+  width: 100%;
+  height: 100%;
+  background-color: none;
+  
+}
+
+
+.div-1 button {
+  border-radius: 1.8rem;
+  padding: 1rem;
+    border: none;
+}
+.para{
+    flex-basis: 50%;
+}
+.its {
+  font-family: "Noto Sans", sans-serif;
+
+  color: rgb(16, 16, 16);
+  font-size: 90px;
+}
+.all_about {
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  /* color: #BCA37F; background-image: -webkit-linear-gradient(0deg, #BCA37F 24%, #113946 85%); background-clip: text; -webkit-background-clip: text; text-fill-color: transparent; -webkit-text-fill-color: transparent; */
+  color: #618264;
+  font-size: 70px;
+}
+.good_food{
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    color:#618264;
+    font-size: 60px;
+}
+.div-2 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: end;
+
+  /* background-color: rgb(255, 255, 255); */
+}
+.model {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+
+    object-fit: cover;
+    position: relative  ;
+    top: 155px;
+    
+    
+    
+    }
+    .img {
+      /* width: 900px;
+      max-width: 500px;
+      height: auto;
+      display: flex;
+      flex-basis: 60%; */
+      
+      width: 900px; 
+      height: 450px; 
+      max-width: 500px; 
+      /* margin-bottom: 50px; */
+
+    }
+    .btn_1{
+        background-color: #FF9209;
+        border: none;
+        color: white;
+       width: 35vh;
+       padding: 10px 20px;
+       
+       transition: transform 0.3s, box-shadow 0.3s;
+     
+    }
+    .btn_1:hover{
+      
+        background: #FF9209;
+
+        box-shadow: 0 0 5px #FF9209, 0 0 55px
+        
+        #FF9209
+    }
+    .btn_2{
+        background: none;
+        border: none;
+        color:blue;
+       }
+/* *********************************************************************************** */
+/* For screens with a maximum width of 768px */
+@media screen and (max-width: 680px ) {
+  .banner-container {
+    flex-direction: column;
+    padding: 1rem;
+   
+  }
+
+  .div-1,
+  .div-2 {
+    width: 100%;
+  }
+
+  .div-2 {
+    margin-top: 20px;
+  }
+
+  .img {
+    width: 100%; /* Adjust the image width to fit smaller screens */
+    max-width: 100%; /* Ensure it doesn't exceed the container width */
+   
+  }
+ 
+
+  .text-1 {
+    text-align: left;
+  }
+
+  .its,
+  .all_about {
+    font-size: 60px;
+  }
+
+  .div-1 button {
+    padding: 0.8rem;
+  }
+  .model{
+
+  }
+}

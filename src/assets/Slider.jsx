@@ -55,9 +55,9 @@ const data = [
 
 const Carousel = () => {
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
-    speed: 500,
+    speed:500,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
@@ -68,7 +68,7 @@ const Carousel = () => {
     <div className="card_container" >
         <div className='heading_div'>
             <h1 className='heading_card'>
-         <span >What Our Clients</span><br />
+         <span style={{color:"red"}} >What Our Clients</span><br />
          <span>Say About Us</span>    
                 
                 </h1>

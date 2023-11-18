@@ -13,13 +13,13 @@ import { createSlice } from "@reduxjs/toolkit";
         console.log(state.token);
        },
 
-    addProduct: (state,action)=>{
-        state.products.push(action.payload)
-        console.log(state.products);
+    // addProduct: (state,action)=>{
+    //     state.products.push(action.payload)
+    //     console.log(state.products);
 
-    },
+    // },
     setProducts : (state,action)=>{
-        state.products = [...state.products,...action.payload]
+        state.products = action.payload
     },   
             }
         

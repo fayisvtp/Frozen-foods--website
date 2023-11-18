@@ -1,48 +1,47 @@
-
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { selectToken } from "../Redux/ItemSlice"; // Update import
+import { selectToken } from "../Redux/ItemSlice";
 
 const AdProduct = () => {
   const token = useSelector(selectToken);
- 
 
   const addProduct = async (event) => {
+    console.log("cl")
     event.preventDefault();
 
     const formData = new FormData();
-    formData.append("title",event.target.title.value)
-    formData.append("price",event.target.price.value)
-    formData.append("description",event.target.description.value)
-    formData.append("category",event.target.category.value)
-    formData.append("image",event.target.image.files[0]);
+    formData.append("title", event.target.title.value);
+    formData.append("price", event.target.price.value);
+    formData.append("description", event.target.description.value);
+    formData.append("category", event.target.category.value);
+    formData.append("img", event.target.image.files[0]);
 
     try {
       const response = await axios.post(
-        "https://ecommerce-api.bridgeon.in/products",formData,
-      
+        "https://ecommerce-api.bridgeon.in/products",
+        formData,
+
         {
+         
           headers: {
             Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data"
+            "Content-Type": "multipart/form-data",
           },
         }
       );
+
       const { status, message, data } = response.data;
 
       if (status === "success") {
         console.log("Product added. Product details:", data);
-      }
-      
-      else {
+        alert("product added")
+      } else {
         console.error("Product addition failed. Message:", message);
       }
-    }
-     catch (error) {
-        console.error("Error:", error.message);
-      
+    } catch (error) {
+      console.error("Error:", error.message);
     }
   };
 
@@ -54,15 +53,19 @@ const AdProduct = () => {
             <h2>Product Adding</h2>
             <hr />
 
-            <form onSubmit={addProduct}>
-              
+            <form
+              onSubmit={addProduct}
+              method="post"
+              encType="multipart/form-data"
+            >
+              {/* Update input name to "title" */}
               <div className="mb-3">
-                <label htmlFor="name" className="form-label">
+                <label htmlFor="title" className="form-label">
                   Product Name
                 </label>
                 <input
                   type="text"
-                  name="name"
+                  name="title"
                   id="title"
                   placeholder="Product Name"
                   className="form-control"
@@ -103,7 +106,6 @@ const AdProduct = () => {
                   type="file"
                   name="image"
                   id="image"
-                  placeholder="select file"
                   className="form-control"
                 />
               </div>
@@ -150,8 +152,6 @@ const AdProduct = () => {
       </section>
     </div>
   );
+};
 
-              }
-            
 export default AdProduct;
-              

@@ -25,7 +25,7 @@ function App() {
     <Footer/> */}
       {/* ------------------------Admin side------------------------ */}
  
-      <Route path='/adminhome' element= {<AdminHome/>}/> 
+
       <Route path='/adminhome' element= {<AdminHome/>}/>
       <Route path='/adproduct' element ={<AdProduct/>}/>
       <Route path='/allproducts' element ={<AllProducts/>}/>

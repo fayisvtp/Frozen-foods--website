@@ -10,7 +10,7 @@ import {
 } from "mdb-react-ui-kit";
 // import "./LoginAdmin.css";
 import axios from "axios";
-import {  useNavigate } from "react-router-dom";
+import {  Link, useNavigate } from "react-router-dom";
 import { useDispatch, } from "react-redux";
 import { setToken } from "../Redux/ItemSlice";
 // import { Link } from "react-router-dom";
@@ -33,7 +33,6 @@ const login = async (event) =>{
    " https://ecommerce-api.bridgeon.in/login",{
       email,
       password,
-
    }
    )
 
@@ -44,7 +43,7 @@ const login = async (event) =>{
     dispatch(setToken(token))
   
     console.log('Login successful. Token:', token);
-    navigate('/adminhome')
+    navigate('/allproducts')
     
  
   } else {
@@ -89,11 +88,11 @@ const login = async (event) =>{
 
               {/* <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">
               Forgot password?</a></p> */}
-              {/* <Link to="/adminhome"> */}
+              <Link to="/allproducts">
               <MDBBtn type=""  outline className="mx-2 px-5" color="white" size="lg">
                 Login
               </MDBBtn>
-              {/* </Link> */}
+              </Link>
             </MDBCardBody>
           </MDBCard>
         </MDBCol>

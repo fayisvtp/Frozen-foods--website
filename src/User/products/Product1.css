@@ -1,0 +1,19 @@
+.bannerCard {
+    margin-top: 90px;
+    z-index: 999;
+}
+.line-1{
+    font-size: 35px;
+    color: red;
+    font-family: 'Caveat', cursive;
+}
+.line-2{
+    font-size: 25px;
+    color: rgb(38, 0, 255);
+    font-family: 'Caveat', cursive;
+}
+.line-3{
+    font-size: 25px;
+    color: rgb(255, 204, 0);
+    font-family: 'Caveat', cursive;
+}

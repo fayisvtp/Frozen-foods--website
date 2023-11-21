@@ -3,10 +3,13 @@ import "../component/Home.css";
 import Banner from "../assets/Banner";
 // import Slider from "../assets/Slider";
 import Carousel from "../assets/Slider";
-
+import Navbar from "./Navbar"
 function Home() {
+ 
+  
   return (
 <>
+<Navbar />
 <Banner/>
 
 <div className="container-card">

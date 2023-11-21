@@ -55,7 +55,7 @@ const AdProduct = () => {
 
             <form
               onSubmit={addProduct}
-              method="post"
+        
               encType="multipart/form-data"
             >
               {/* Update input name to "title" */}

@@ -1,6 +1,6 @@
 import React from "react";
 import './Product1.css';
-// import cook from '/coding/Projects/frostybytes/src/assets/cook.jpg';
+import cook from '/coding/Projects/frostybytes/src/assets/cook.jpg';
 // import frozen1 from '/coding/Projects/frostybytes/src/assets/frozen1.jpeg'
 // import frozen2 from "/coding/Projects/frostybytes/src/assets/frozen2.jpg"
 // import frozen3 from '/coding/Projects/frostybytes/src/assets/frozen3.jpg'

@@ -5,6 +5,7 @@ import {
   MDBBreadcrumb,
   MDBBreadcrumbItem
 } from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
 
 export default function AdminNav() {
   return (
@@ -13,6 +14,7 @@ export default function AdminNav() {
         <nav aria-label='breadcrumb'>
           <MDBBreadcrumb>
             <MDBBreadcrumbItem>
+            
               <a href='/adproduct'>Add product</a>
             </MDBBreadcrumbItem>
             <MDBBreadcrumbItem>

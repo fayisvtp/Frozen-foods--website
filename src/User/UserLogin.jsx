@@ -14,7 +14,7 @@ import { setToken } from "../Redux/ItemSlice";
 
 function UserLogin() {
 
-    const isSignIn = useSelector((state)=> state.product.isSignIn)
+    // const isSignIn = useSelector((state)=> state.product.isSignIn)
 
     const [state,setstate] = useState("")
     const [name,setName] = useState("")
@@ -32,7 +32,7 @@ function UserLogin() {
     handleLogin(event)
   }
   else{
-    // loginUser(accessKey,email,password)
+    loginUser(accessKey,email,password)
   }     
     }
     const handleLogin = async (event) => {
@@ -56,7 +56,7 @@ function UserLogin() {
         const token = data.token;
         console.log("Login successful. Token:", token);
         dispatch(setToken(token)); 
-        navigate("/adminhome");
+        navigate("/");
       } else {
         console.error("Login failed. Message:", message);
       }

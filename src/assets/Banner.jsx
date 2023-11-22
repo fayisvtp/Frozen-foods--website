@@ -1,6 +1,7 @@
 import React from "react";
 import "./Banner.css";
 import image from "./model-1.png";
+import { Link } from "react-router-dom";
 
 
 function Banner() {
@@ -24,12 +25,16 @@ function Banner() {
           
         </div>
         <div>
+          <Link to="/product1">
           <button className="btn_1">Order Now</button>
+          </Link>
         </div>
         <div>
           {/* <div></div> */}
           <div>
-            <button className="btn_2 ">How to manage Food cost</button>
+          <Link to="/foodcost">
+            <button className="btn_2 ">How to manage Food cost</button> 
+            </Link>
           </div>
         </div>
       </div>

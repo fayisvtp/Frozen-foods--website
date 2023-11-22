@@ -11,6 +11,7 @@ import AdminEdit from './Adimin/AdminEdit';
 import Product1 from './User/products/Product1';
 import Register from './User/products/Register';
 import UserLogin from './User/UserLogin';
+import FoodCost from './component/FoodCost';
 
 
 
@@ -25,6 +26,7 @@ function App() {
       <Route path='/register' element ={<Register/>}/>
       <Route path='product1' element ={<Product1/>}/>
       <Route path='/userLogin' element ={<UserLogin/>}/>
+      <Route path='/foodcost' element ={<FoodCost/>}/>
       {/* <Navbar/> */}
       
 

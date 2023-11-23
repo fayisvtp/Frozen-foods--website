@@ -60,8 +60,8 @@ dispatch(setProducts(data))
      getAllProducts()
     }
    } catch (error) {
-    console.log(error)
-    console.log(error.response.message)
+    // console.log(error)
+    // console.log(error.response.message)
    }
   }
  

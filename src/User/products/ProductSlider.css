@@ -1,0 +1,7 @@
+.slick-slide {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0; /* Set border-radius to 0 to make the slides square */
+  }
+  

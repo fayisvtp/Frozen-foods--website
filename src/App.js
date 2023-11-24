@@ -13,6 +13,7 @@ import Register from './User/products/Register';
 import UserLogin from './User/UserLogin';
 import FoodCost from './component/FoodCost';
 import Users from './Adimin/Users';
+import ProductSlider from './User/products/ProductSlider';
 
 
 
@@ -22,7 +23,7 @@ function App() {
   return (
     <div >
       <Routes>
-          {/* <Route path='/' element ={<Users/>}/> */}
+
       {/* ------------------------user side------------------------ */}
       <Route path='/' element ={<Home/>}/>
       <Route path='/register' element ={<Register/>}/>

@@ -1,10 +1,6 @@
 import React from "react";
-import './Product1.css';
 import cook from '/coding/Projects/frostybytes/src/assets/cook.jpg';
-// import frozen1 from '/coding/Projects/frostybytes/src/assets/frozen1.jpeg'
-// import frozen2 from "/coding/Projects/frostybytes/src/assets/frozen2.jpg"
-// import frozen3 from '/coding/Projects/frostybytes/src/assets/frozen3.jpg'
-// import { Link } from "react-router-dom";
+
 function Product1() {
   return (
     <>
@@ -15,10 +11,12 @@ function Product1() {
           height: 400,
         }}
       >
-        {/* ********************** */}
-
-        
-     </div>
+        {/* Content for the headimg div */}
+      </div>
+      <div className="container col-12 bg-gray">
+      <i class="fa-solid fa-tomato"></i>
+      <img src="https://foodtank.com/wp-content/uploads/2018/02/woman-farming.jpg" alt="" />
+      </div>
     </>
   );
 }

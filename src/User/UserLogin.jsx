@@ -10,7 +10,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { setToken } from "../Redux/ItemSlice";
+import { setToken, setUserToken } from "../Redux/ItemSlice";
 
 function UserLogin() {
 
@@ -55,7 +55,7 @@ function UserLogin() {
       if (status === "success") {
         const token = data.token;
         console.log("Login successful. Token:", token);
-        dispatch(setToken(token)); 
+        dispatch(setUserToken(token)); 
         navigate("/");
       } else {
         console.error("Login failed. Message:", message);

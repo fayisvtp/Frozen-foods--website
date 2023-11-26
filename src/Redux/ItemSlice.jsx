@@ -11,8 +11,8 @@ import { createSlice } from "@reduxjs/toolkit";
     reducers : {
        setToken:(state, action) => {
         state.token = action.payload;
-        localStorage.setItem('token',action.payload)
-        console.log(state.token);
+        localStorage.setItem('token', action.payload);
+        console.log("too",state.token);
        },
 
     // addProduct: (state,action)=>{

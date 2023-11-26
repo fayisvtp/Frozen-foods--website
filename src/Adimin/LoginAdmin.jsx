@@ -28,29 +28,26 @@ const login = async (event) =>{
  const password = event.target.form2.value
  console.log(password);
 
- try{
+   
+ try {
   const response = await axios.post(
-   " https://ecommerce-api.bridgeon.in/login",{
+    "https://ecommerce-api.bridgeon.in/login",
+    {
       email,
       password,
-   }
-   )
-
-  console.log("Response",response,);
-  const {status,message,data} = response.data
-  if (status === 'success') {
+    }
+  );
+  const { status, message, data } = response.data;
+  if (status === "success") {
     const token = data.token;
     dispatch(setToken(token))
-  
-    console.log('Login successful. Token:', token);
+    console.log("Login successful. Token:", token);
     navigate('/allproducts')
-    
- 
   } else {
-    console.error('Login failed. Message:', message);
+    console.error("Login failed. Message:", message);
   }
 } catch (error) {
-  console.error('Error:', error.message);
+  console.error("Error:", error.message);
 }
  }
 

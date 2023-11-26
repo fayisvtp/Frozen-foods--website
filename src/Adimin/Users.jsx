@@ -57,8 +57,11 @@ const handletrash = (id) => {
 
   return (
     <div>
-      <MDBTable align='middle'>
-      <MDBTableHead>
+     <div className="users justify-content-center bg-primary text-center text-light">
+  <h1>All Users</h1>
+</div>
+      <MDBTable align='middle' className="mt-3">
+      <MDBTableHead className="tableHeading bg-danger text-light">
         <tr>
           <th scope='col'>Id</th>
           <th scope='col'>Name</th>
@@ -81,10 +84,11 @@ const handletrash = (id) => {
               />
               <div className='ms-3'>
                 <p className='fw-bold mb-1'>{user._id}</p>
-                <p className='text-muted mb-0'>{user.username}</p>
+                
               </div>
             </div>
           </td>
+          <td><p className='text-muted mb-0'>{user.username}</p></td>
           <td>
             <p className='fw-normal mb-1'>{user.email}</p>
           

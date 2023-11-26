@@ -18,7 +18,7 @@ export default function AdminNav() {
               <a href='/adproduct'>Add product</a>
             </MDBBreadcrumbItem>
             <MDBBreadcrumbItem>
-              <a href='#'>Library</a>
+              <a href='/users'>All Users</a>
             </MDBBreadcrumbItem>
             <MDBBreadcrumbItem active aria-current='page'>
               <a href='#'>Data</a>

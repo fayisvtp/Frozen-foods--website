@@ -41,6 +41,7 @@ function App() {
       <Route path='/allproducts' element ={<AllProducts/>}/>
       <Route path="/adminedit/:productId" element={<AdminEdit />} /> 
       <Route path='/adminlogin' element ={<LoginAdmin/>}/> 
+      <Route path='/users' element ={<Users/>}/> 
 
    
       </Routes>

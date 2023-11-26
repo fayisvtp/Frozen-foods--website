@@ -8,9 +8,8 @@ import AdminNav from "./AdminNav";
 
 function AllProducts() {
   const token = useSelector(selectToken)
+  console.log("tokenn",token)
   // const token = useSelector((state) => state.item.token);
-
-  console.log("token",token)
   const products = useSelector(selectProduct);
   const dispatch = useDispatch();
   // const dealerToken = token;
@@ -85,6 +84,7 @@ dispatch(setProducts(data))
                 className="w-100 border-bottom"
                 src={item.image} 
                 alt={item.title}
+                style={{borderRadius:'0%'}}
               />
               <div className="card-body">
                 <h5>{item.title}</h5>

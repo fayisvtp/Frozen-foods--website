@@ -1,19 +1,27 @@
-.bannerCard {
-    margin-top: 90px;
-    z-index: 999;
+
+
+.freshness{
+    font-size: 90px;
+    font-weight: bold;
+    line-height: 1;
+
+    
 }
-.line-1{
-    font-size: 35px;
-    color: red;
-    font-family: 'Caveat', cursive;
+.freshness:hover{
+    color: #ffda5f;
 }
-.line-2{
-    font-size: 25px;
-    color: rgb(38, 0, 255);
-    font-family: 'Caveat', cursive;
+.delevery{
+    background-color: #28a745; /* Success background color (green) */
+  border-radius: 20px; /* Rounded corners */
+  padding: 10px; /* Optional padding for spacing around the text */
+  color: #fff; /* Text color */
+  display: inline-block; /* Ensures the div size is based on its content */
+  background-size: cover; /* Background size covering the content */
 }
-.line-3{
-    font-size: 25px;
-    color: rgb(255, 204, 0);
-    font-family: 'Caveat', cursive;
-}
+.links-inline h5:hover {
+    color: #ffda5f; /* Change the color to your desired hover color */
+    cursor: pointer;
+    text-decoration:none;
+  }
+  
+

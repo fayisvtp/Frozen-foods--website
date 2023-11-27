@@ -7,10 +7,12 @@ import cook from "/coding/Projects/frostybytes/src/assets/cook.jpg";
 
 import SmallCardlist from "./SmallCardslist";
 import PopularProducts from "./PopularProducts";
+import Navbar from "../../component/Navbar";
 function Product1() {
 
   return (
     <>
+    <Navbar/>
      <Grid container className="headimg p-5 text-center bg-image" style={{
       backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${cook})`,
       height: 'auto',
@@ -43,8 +45,6 @@ function Product1() {
     </Grid>
 
 <SmallCardlist/>
-
-      <h3>Popular Products</h3>
       <PopularProducts/>
     </>
   );

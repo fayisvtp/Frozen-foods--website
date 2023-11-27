@@ -56,7 +56,7 @@ function UserLogin() {
         const token = data.token;
         console.log("Login successful. Token:", token);
         dispatch(setUserToken(token)); 
-        navigate("/");
+        navigate("/allproduct");
       } else {
         console.error("Login failed. Message:", message);
       }
@@ -83,7 +83,7 @@ function UserLogin() {
         
 
         console.log('Login successful. Token:', token);
-        navigate('/home')
+        navigate('/product1')
         alert('Login Successfull')
       } else {
         alert('Login Fail')
@@ -96,7 +96,7 @@ function UserLogin() {
     }
   }
 
-
+// *****************************************************************************************************
 
   return (
     <div>

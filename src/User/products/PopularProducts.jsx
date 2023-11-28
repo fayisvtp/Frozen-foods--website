@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectProduct, selectUserToken, setProducts } from '../../Redux/ItemSlice';
 import axios from 'axios'
 import "./popularProducts.css"
+import { Link } from 'react-router-dom';
 export default function PopularProducts() {
 
  const token = useSelector(selectUserToken)
@@ -57,51 +58,55 @@ console.log("popular",data);
   return (
     <>
 
-    <MDBContainer fluid className="my-5 text-center popularproductss">
-    <MDBRow>
-      <h1>future products</h1>
-    {data.map ((item)=>(
-     <MDBCol key={item.id} md="12" lg="4" className="mb-4 p-5">
-        <MDBRipple
-              rippleColor="dark"
-              rippleTag="div"
-              className="bg-image rounded hover-zoom shadow-1-strong"
-              style={{height:"240px", width:"350px"}}
-            >
-          <img
-            src={item.image}
-            fluid
-            className="w-100"
-            style={{borderRadius:'0'}}
-          />
-          {/* <a href="#!"> */}
-            <div
-              className="mask"
-              style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
-            >
-              <div className="d-flex justify-content-start align-items-start h-100">
-                <h5>
-                  <span className="badge bg-light pt-2 ms-3 mt-3 text-dark">
-                    ₹{item.price}
-                  </span>
-                </h5>
-              </div>
-            </div>
-            <div className="hover-overlay">
-              <h5 className="text-success ">
-                <span>{item.title}</span>
-                </h5>
-              <div
-                className="mask"
-                style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}
-              ></div>
-            </div>
-          {/* </a> */}
-        </MDBRipple>
-      </MDBCol>
-    ))}
-    </MDBRow> 
-  </MDBContainer>
+<MDBContainer fluid className="my-5 text-center popularproductss">
+        <MDBRow>
+          <h1>future products</h1>
+          {data.map((item) => (
+            <MDBCol key={item._id} md="12" lg="4" className="mb-4 p-5">
+              <Link to={`/details/${item._id}`}>
+                {/* Wrap the content with Link */}
+                <MDBRipple
+                  rippleColor="dark"
+                  rippleTag="div"
+                  className="bg-image rounded hover-zoom shadow-1-strong"
+                  style={{ height: "240px", width: "350px" }}
+                >
+                  <img
+                    src={item.image}
+                    fluid
+                    className="w-100"
+                    style={{ borderRadius: '0' }}
+                  />
+
+                  <div
+                    className="mask"
+                    style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
+                  >
+                    <div className="d-flex justify-content-start align-items-start h-100">
+                      <h5>
+                        <span className="badge bg-light pt-2 ms-3 mt-3 text-dark">
+                          ₹{item.price}
+                        </span>
+                      </h5>
+                    </div>
+                  </div>
+                  <div className="hover-overlay">
+                    <h5 className="text-success ">
+                      <span>{item.title}</span>
+                    </h5>
+                    <div
+                      className="mask"
+                      style={{
+                        backgroundColor: 'rgba(251, 251, 251, 0.15)',
+                      }}
+                    ></div>
+                  </div>
+                </MDBRipple>
+              </Link>
+            </MDBCol>
+          ))}
+        </MDBRow>
+      </MDBContainer>
     
     </>
   );

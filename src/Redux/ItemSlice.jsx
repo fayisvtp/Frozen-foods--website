@@ -29,6 +29,11 @@ import { createSlice } from "@reduxjs/toolkit";
     },
     setSignIn: (state,action) =>{
         state.isSignIn = action.payload
+    },
+    setUserId: (state,action)=> {
+        state.userId = action.payload;
+        localStorage.setItem('userId',action.payload)
+
     }
 
             }
@@ -41,7 +46,7 @@ export const {setToken, addProduct, setProducts, setUserToken,setSignIn} = ItemS
 export const selectToken = (state)=>state.item.token
 export const selectProduct= (state )=>state.item.products
 export const selectUserToken = (state) => state.item.userToken
-
+export const SelectUderId = (state) => state.item.userId
 
 export default ItemSlice.reducer
 

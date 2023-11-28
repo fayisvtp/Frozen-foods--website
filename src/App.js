@@ -14,6 +14,7 @@ import UserLogin from './User/UserLogin';
 import FoodCost from './component/FoodCost';
 import Users from './Adimin/Users';
 import ProductSlider from './User/products/ProductSlider';
+import ProductDetails from './User/ProductDetails';
 
 
 
@@ -30,6 +31,7 @@ function App() {
       <Route path='product1' element ={<Product1/>}/>
       <Route path='/userLogin' element ={<UserLogin/>}/>
       <Route path='/foodcost' element ={<FoodCost/>}/>
+      <Route path='/details/:id' element ={<ProductDetails/>}/>
       {/* <Navbar/> */}
       
 

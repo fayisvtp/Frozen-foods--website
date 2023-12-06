@@ -29,7 +29,7 @@ function AllProducts() {
       const { status, message, data } = response.data;
       if (status === "success") {
         // Successfully fetched products.
-dispatch(setProducts(data))
+        dispatch(setProducts(data))
      
         console.log("Fetched products:", data);
       } else {

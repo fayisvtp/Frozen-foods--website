@@ -124,11 +124,12 @@ export default function Navbar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+      <Link className="btn btn-danger shadow" to={"/cart"}>cart</Link>
+        <Link to="/cart" size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={0} color="error">
             <ShoppingCartIcon />
           </Badge>
-        </IconButton>
+        </Link >
         <p>Cart</p>
       </MenuItem>
       <MenuItem>

@@ -6,7 +6,9 @@ import { createSlice } from "@reduxjs/toolkit";
         products: [],
         userToken : null,
         token : localStorage.getItem("token")|| null,
-        isSignIn : true
+        isSignIn : true,
+        isCart: false,
+        userId: localStorage.getItem('userId')|| null,
     },
     reducers : {
        setToken:(state, action) => {
@@ -42,12 +44,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 )
 
-export const {setToken, addProduct, setProducts, setUserToken,setSignIn} = ItemSlice.actions;
+export const {setToken, addProduct, setProducts, setUserToken,setSignIn,setUserId} = ItemSlice.actions;
 export const selectToken = (state)=>state.item.token
 export const selectProduct= (state )=>state.item.products
 export const selectUserToken = (state) => state.item.userToken
-export const SelectUderId = (state) => state.item.userId
-
+export const SelectUserId = (state) => state.item.userId
 export default ItemSlice.reducer
 
 

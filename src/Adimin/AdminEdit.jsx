@@ -46,7 +46,7 @@ export default function AdminEdit() {
     };
 
     fetchProductDetails();
-  }, [productId]);
+  }, []);
 
   const updateProduct = async (e) => {
     e.preventDefault(); // Prevent default form submission
@@ -67,6 +67,7 @@ export default function AdminEdit() {
       });
       const { status, message, data } = response.data;
       if (status === 'success') {
+        navigate("/allproducts")
         console.log('Updated product details:', data);
       } else {
         console.error('Product update failed. Message:', message);

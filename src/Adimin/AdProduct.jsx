@@ -9,9 +9,10 @@ import { selectToken } from "../Redux/ItemSlice";
 
 const AdProduct = () => {
   const token = useSelector(selectToken);
+  console.log(token)
 
   const addProduct = async (event) => {
-    console.log("cl")
+    
     event.preventDefault();
 
     const formData = new FormData();
@@ -23,8 +24,7 @@ const AdProduct = () => {
 
     try {
       const response = await axios.post(
-        "https://ecommerce-api.bridgeon.in/products",
-        formData,
+        "https://ecommerce-api.bridgeon.in/products",formData,
 
         {
          
@@ -34,6 +34,7 @@ const AdProduct = () => {
           },
         }
       );
+   
 
       const { status, message, data } = response.data;
 

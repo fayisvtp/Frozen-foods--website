@@ -1,65 +1,101 @@
 import React from 'react'
-import { useEffect,useState } from 'react';
+
+import { useState,useEffect } from 'react';
 import axios from 'axios'
-import { SelectUderId, selectProduct, selectToken, selectUserToken, setProducts } from '../Redux/ItemSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { SelectUserId, selectProduct, selectToken, selectUserToken, setProducts } from '../Redux/ItemSlice';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import {  MDBCol,  MDBCardBody, MDBRipple, MDBCardImage, MDBIcon, MDBBtn } from 'mdb-react-ui-kit';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css'; 
 import './products/ProductDetails.css'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import IconButton from '@mui/material/IconButton';
+import Navbar from '../component/Navbar';
 
 function ProductDetails() {
-
-  const token = useSelector(selectToken);
-  const dispatch=useDispatch()
-  const products = useSelector(selectProduct);
-  const [updatedProductData, setUpdatedProductData] = useState(null);
+console.log('kooi');
   const {id} = useParams()
-  console.log(id);
-  const dealerToken = token;
-  const userId=useSelector(SelectUderId)
-  const userToken=useSelector(selectUserToken)
+  const [productDetail,setProductDetails] = useState({})
+  const token = useSelector(selectToken)
+  const allproducts = useSelector (selectProduct)
+  const userId = useSelector (SelectUserId)
+  console.log("userId",userId);
+  const userToken = useSelector (selectUserToken)
+  console.log("user token",userToken);
 
+  useEffect(() => {
+    getProductById(id, token, allproducts);
+  }, [id, token, allproducts]);
   
-  const getAllProducts = async (token) => {
-    try {
-      const response = await axios.get(
-        "https://ecommerce-api.bridgeon.in/products?accessKey=e750a4e245dc6f3f299a",
-        {
+  const getProductById = async (id, token, allProducts) => {
+    const product = allProducts.find((product) => product._id === id);
+
+    if (product) {
+      // If the product is found in the Redux store, set the details
+      setProductDetails(product);
+    } else {
+      // If the product is not found in the Redux store, make an API call to get it
+      try {
+        const response = await axios.get(`https://ecommerce-api.bridgeon.in/products/${userId}?accessKey=e750a4e245dc6f3f299a`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
+        });
+        const { status, message, data } = response.data;
+        if (status === 'success') {
+          // Successfully fetched the product.
+          console.log('Fetched product details:', data);
+          setProductDetails(data);
+        } else {
+          console.error('Product retrieval failed. Message:', message);
         }
-      );
-      const { status, message, data } = response.data;
-      if (status === "success") { 
-        // Successfully fetched products.
-        dispatch(setProducts(data)); // Use setProductsAction instead of setProducts
-        console.log("Fetched products:", data);
-      } else {
-        console.error("Product retrieval failed. Message:", message);
+      } catch (error) {
+        console.error('Error:', error.message);
       }
-    } catch (error) {
-      console.error("Error:", error.message);
     }
   };
-  useEffect(() => {
-    getAllProducts(dealerToken);
-  }, [updatedProductData]);
-  //Code for filtering the product using ID
-  const data =products.filter((item) => item._id=== id)
-  console.log(data);
+
+
+  const handleCart = async (productId) => {
+    try {
+      console.log("Adding product to cart...");
+      console.log("Product ID:", productId);
+      console.log("User ID:", userId);
+      console.log("User Token:", userToken);
+  
+      const response = await axios.post(
+        `https://ecommerce-api.bridgeon.in/users/${userId}/cart/${productId}`,
+        null, // Assuming no data payload, pass null if not needed
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        }
+      );
+  
+  // Log the response from the server
+  
+      if (response.data.status === 'success') {
+        console.log('Product added to cart.');
+        alert.success("product added to cart  succussfully")
+      } else {
+        console.error('Product addition to cart failed. Message:', response.data.message);
+      }
+    } catch (error) {
+      console.error('error');
+    }
+  };
+
 
 // *******************************************************************
 
   return (
-    
+    <>
+    <Navbar/>
     <MDBCol  className='col-12 align-item-center p-5 m-auto'>
-      {data.map ((item)=>(
-     <div key={item._id} className=" col-8 shadow-0 border rounded-3 mt-5 mb-3">
+      
+     <div key={productDetail._id} className=" col-8 shadow-0 border rounded-3 mt-5 mb-3">
       <MDBCardBody>
         <MDBRipple
           rippleColor="light"
@@ -67,7 +103,7 @@ function ProductDetails() {
           className="bg-image rounded hover-zoom hover-overlay"
         >
           <img
-            src={item.image}
+            src={productDetail.image}
             fluid
             className=" card shadow w-10px"
             style={{borderRadius:'0', width:'500px'}}
@@ -79,7 +115,8 @@ function ProductDetails() {
             ></div>
       
         </MDBRipple>
-        <h5></h5>
+        <h1>{productDetail.title}</h1>
+        <h2>₹{productDetail.price}</h2>
         <div className="d-flex flex-row">
           <div className="text-danger mb-1 me-2">
             <MDBIcon fas icon="star" />
@@ -89,7 +126,7 @@ function ProductDetails() {
           </div>
           <span></span>
         </div>
-        <div className="mt-1 mb-0 text-muted small">
+        {/* <div className="mt-1 mb-0 text-muted small">
           <span></span>
           <span className="text-primary"> • </span>
           <span></span>
@@ -104,9 +141,9 @@ function ProductDetails() {
           <span className="text-primary"> • </span>
           <span></span>
           <br />
-        </div>
+        </div> */}
         <p className="text mb-4 mb-md-0">
-          {item.description}
+          {productDetail.description}
         </p>
         <div className="d-flex flex-row  mb-1">
           <h4 className="mb-1 me-1"></h4>
@@ -117,19 +154,24 @@ function ProductDetails() {
         <h6 className="text-success"></h6>
         <div className="d-flex flex-row  mt-4">
           
-        <Link to='/cart' color="primary" size="small" className="mt-2 text-danger">
+        <IconButton  onClick={()=>  handleCart(productDetail._id)} color="primary" size="small" className="mt-2 text-danger">
   <ShoppingCartIcon />
-</Link>
-          <Link to="/wishliist" color="primary" size="small" className="mt-2 text-success">
+</IconButton >
+          <IconButton  to="/wishliist" color="primary" size="small" className="mt-2 text-success">
   <FavoriteIcon />
-</Link>
+</IconButton >
         </div>
       </MDBCardBody>
     </div>
-    ))}
+    
   </MDBCol>
-
+  </>
   )
 }
 
 export default ProductDetails
+
+
+
+
+  

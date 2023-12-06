@@ -30,25 +30,36 @@ const login = async (event) =>{
 
    
  try {
-  const response = await axios.post(
-    "https://ecommerce-api.bridgeon.in/login",
-    {
-      email,
-      password,
-    }
-  );
-  const { status, message, data } = response.data;
-  if (status === "success") {
-    const token = data.token;
-    dispatch(setToken(token))
-    console.log("Login successful. Token:", token);
-    navigate('/allproducts')
-  } else {
-    console.error("Login failed. Message:", message);
-  }
-} catch (error) {
-  console.error("Error:", error.message);
-}
+   const response = await axios.post(
+     "https://ecommerce-api.bridgeon.in/login",
+     {
+       email,
+       password,
+      }
+      );
+      if(response.status === 200){
+        console.log("neToken",response.data.data.token)
+        dispatch(setToken( response.data.data.token))
+        navigate('/allproducts')
+      }
+      else {
+        console.error("Login failed. Message:", response.data.data.message);
+      }
+    console.log("responce",response)
+ }
+ catch (err){
+  console.error("Error:", err.message);
+ }
+  //   const { status, message, data } = response.data;
+  //   if (status === 200) {
+    //     const token = data.token;
+    //     dispatch(setToken(token))
+    //     navigate('/allproducts')
+//     console.log("Login successful. Token:", token);
+  
+// } catch (error) {
+//   
+// }
  }
 
   return (
@@ -85,11 +96,9 @@ const login = async (event) =>{
 
               {/* <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">
               Forgot password?</a></p> */}
-              <Link to="/allproducts">
               <MDBBtn type=""  outline className="mx-2 px-5" color="white" size="lg">
                 Login
               </MDBBtn>
-              </Link>
             </MDBCardBody>
           </MDBCard>
         </MDBCol>

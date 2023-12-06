@@ -10,7 +10,8 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { setToken, setUserToken } from "../Redux/ItemSlice";
+import { setUserToken} from "../Redux/ItemSlice";
+import {setUserId} from "../Redux/ItemSlice"
 
 function UserLogin() {
 
@@ -53,9 +54,10 @@ function UserLogin() {
       const { status, message, data } = response.data;
       console.log(response.data);
       if (status === "success") {
-        const token = data.token;
-        console.log("Login successful. Token:", token);
-        dispatch(setUserToken(token)); 
+      
+
+       
+        
         navigate("/allproduct");
       } else {
         console.error("Login failed. Message:", message);
@@ -67,6 +69,7 @@ function UserLogin() {
 
   const loginUser = async (accessKey,email,password) => {
 
+   
     try {
       const response = await axios.post('https://ecommerce-api.bridgeon.in/users/login', {
         accessKey,
@@ -77,10 +80,13 @@ function UserLogin() {
         const { status, message, data } = response.data;
 
       if (status === 'success') {
-        console.log(data)
+       
+
         const token = data.token;
-        setName(data._id)
-        
+        const userId = data.userId;
+        dispatch(setUserToken(token)); 
+        dispatch(setUserId(userId)); 
+    
 
         console.log('Login successful. Token:', token);
         navigate('/product1')

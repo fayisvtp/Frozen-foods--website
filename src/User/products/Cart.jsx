@@ -14,7 +14,7 @@ import {
   MDBTableHead,
   MDBTableBody,
 } from "mdb-react-ui-kit";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Cart() {
   const userId = useSelector(SelectUserId);
@@ -148,7 +148,7 @@ function Cart() {
               <MDBBtn 
               onClick={()=>wishliisthandle(item._id)}
                color="link" rounded size="sm">
-                add to wishlist
+                save to later
               </MDBBtn>
             </td>
           </tr>      
@@ -156,7 +156,10 @@ function Cart() {
        })}
         </MDBTableBody>
       </MDBTable>
-     
+     <div className="col-6 ">
+      <div className="btn btn-danger col-3"> Chekout</div>
+      <Link to={"/wishlist"} className="btn btn-danger col-3"> wishliist</Link >
+     </div>
     </>
   );
 }

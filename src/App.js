@@ -16,6 +16,7 @@ import Users from './Adimin/Users';
 import ProductSlider from './User/products/ProductSlider';
 import ProductDetails from './User/ProductDetails';
 import Cart from './User/products/Cart';
+import Wishlist from './User/products/Wishlist';
 
 
 
@@ -30,10 +31,11 @@ function App() {
       <Route path='/' element ={<Home/>}/>
       <Route path='/register' element ={<Register/>}/>
       <Route path='product1' element ={<Product1/>}/>
-      <Route path='/login' element ={<UserLogin/>}/>
+      <Route path='/userlogin' element ={<UserLogin/>}/>
       <Route path='/foodcost' element ={<FoodCost/>}/>
       <Route path='/details/:id' element ={<ProductDetails/>}/>
       <Route path='/cart' element ={<Cart/>}/>
+      <Route path='/wishlist' element ={<Wishlist/>}/>
       {/* <Navbar/> */}
       
 

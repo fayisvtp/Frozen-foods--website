@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
     name : "item",
     initialState:{
         products: [],
-        userToken : null,
+        userToken :  localStorage.getItem('userToken')|| null,
         token : localStorage.getItem("token")|| null,
         isSignIn : true,
         isCart: false,
@@ -28,6 +28,7 @@ import { createSlice } from "@reduxjs/toolkit";
     
     setUserToken : (state,action)=>{
         state.userToken = action.payload
+        localStorage.setItem('userToken',action.payload)
     },
     setSignIn: (state,action) =>{
         state.isSignIn = action.payload

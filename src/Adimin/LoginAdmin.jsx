@@ -50,16 +50,6 @@ const login = async (event) =>{
  catch (err){
   console.error("Error:", err.message);
  }
-  //   const { status, message, data } = response.data;
-  //   if (status === 200) {
-    //     const token = data.token;
-    //     dispatch(setToken(token))
-    //     navigate('/allproducts')
-//     console.log("Login successful. Token:", token);
-  
-// } catch (error) {
-//   
-// }
  }
 
   return (

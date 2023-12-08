@@ -1,7 +1,6 @@
 
 
 
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -48,7 +47,7 @@ const AdProduct = () => {
       console.error("Error:", error.message);
     }
   };
-
+  
   return (
     <div className="bg-light" style={{ minHeight: "1000vh" }}>
       <section className="container py-5">

@@ -18,6 +18,7 @@ console.log('kooi');
   const {id} = useParams()
   const [productDetail,setProductDetails] = useState({})
   const token = useSelector(selectToken)
+  console.log("tokdddden",token)
   const allproducts = useSelector (selectProduct)
   const userId = useSelector (SelectUserId)
   console.log("userId",userId);

@@ -14,7 +14,7 @@ import IconButton from '@mui/material/IconButton';
 import Navbar from '../component/Navbar';
 
 function ProductDetails() {
-console.log('kooi');
+
   const {id} = useParams()
   const [productDetail,setProductDetails] = useState({})
   const token = useSelector(selectToken)
@@ -24,7 +24,7 @@ console.log('kooi');
   console.log("userId",userId);
   const userToken = useSelector (selectUserToken)
   console.log("user token",userToken);
-
+  const apiKey = process.env.REACT_APP_ACCESS_KEY 
   useEffect(() => {
     getProductById(id, token, allproducts);
   }, [id, token, allproducts]);
@@ -38,7 +38,7 @@ console.log('kooi');
     } else {
       // If the product is not found in the Redux store, make an API call to get it
       try {
-        const response = await axios.get(`/products/${userId}?accessKey=e750a4e245dc6f3f299a`, {
+        const response = await axios.get(`/products/${userId}?accessKey=${apiKey}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

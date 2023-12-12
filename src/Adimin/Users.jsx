@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit'
+import { MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit'
 import { useSelector } from 'react-redux'
 import { selectToken } from '../Redux/ItemSlice'
-import axios from '../User/products/AxiosInstance/AxiosInstance'
+import instance from '../User/products/AxiosInstance/AxiosInstance'
 function Users() {
 
 const [users,setUsers] = useState([])
@@ -11,7 +11,7 @@ const token =useSelector(selectToken)
 
 const findUsers = async () => {
   try {
-    const response = await axios.get('/users', {
+    const response = await instance.get('/users', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -33,7 +33,7 @@ useEffect (()=>{
 
 const deleteUser = async (userId, token) => {
   try {
-    const response = await axios.delete(`/users/${userId}`, {
+    const response = await instance.delete(`/users/${userId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

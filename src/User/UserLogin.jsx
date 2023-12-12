@@ -7,7 +7,7 @@ import {
   from 'mdb-react-ui-kit';
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "./products/AxiosInstance/AxiosInstance";
+import instance from "./products/AxiosInstance/AxiosInstance";
 import { setUserToken} from "../Redux/ItemSlice";
 import {setUserId} from "../Redux/ItemSlice"
 
@@ -25,8 +25,8 @@ function UserLogin() {
         const password = event.target.password.value
         const isAdmin = email ==="vtpfayis@gmail.com"
         event.preventDefault();
-
-   const accessKey="e750a4e245dc6f3f299a"
+        const apiKey = process.env.REACT_APP_ACCESS_KEY 
+   const accessKey=apiKey;
   if(isAdmin){
     handleLogin(event)
   }
@@ -42,7 +42,7 @@ function UserLogin() {
      
       
     try {
-      const response = await axios.post(
+      const response = await instance.post(
         "/login",
         {
           email,
@@ -69,7 +69,7 @@ function UserLogin() {
 
    
     try {
-      const response = await axios.post('/users/login', {
+      const response = await instance.post('/users/login', {
         accessKey,
         email,
         password,

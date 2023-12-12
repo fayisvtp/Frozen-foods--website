@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "../User/products/AxiosInstance/AxiosInstance";
+import instance from "../User/products/AxiosInstance/AxiosInstance"
 import { useDispatch, useSelector } from "react-redux";
 import { selectProduct, selectToken } from "../Redux/ItemSlice";
 import { Link } from "react-router-dom";
@@ -9,17 +9,14 @@ import AdminNav from "./AdminNav";
 function AllProducts() {
   const token = useSelector(selectToken)
   console.log("tokenn",token)
-  // const token = useSelector((state) => state.item.token);
   const products = useSelector(selectProduct);
   const dispatch = useDispatch();
-  // const dealerToken = token;
   const [updatedProductData,setUpdatedProductData] = useState(null)
-  // const [product, setProduct] = useState([])
-
+  const apiKey = process.env.REACT_APP_ACCESS_KEY 
   const getAllProducts = async (token) => {
     try { 
-      const response = await axios.get(
-      "/products?accessKey=e750a4e245dc6f3f299a" ,  
+      const response = await instance.get(
+     ` /products?accessKey=${apiKey}` ,  
     {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -45,7 +42,7 @@ function AllProducts() {
 
   const handleDelete = async (productId)=>{
    try {
-    const response = await axios.delete(
+    const response = await instance.delete(
       `https://ecommerce-api.bridgeon.in/products/${productId}`,
       {
         headers:{

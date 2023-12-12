@@ -7,7 +7,7 @@ import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardImage, MDBBtn, MDBRipple, MD
 import { useSelector } from 'react-redux';
 
 import { useNavigate, useParams } from "react-router-dom";
-import axios from '../User/products/AxiosInstance/AxiosInstance';
+import instance from "../User/products/AxiosInstance/AxiosInstance"
 import { selectToken } from "../Redux/ItemSlice";
 
 export default function AdminEdit() {
@@ -37,7 +37,7 @@ export default function AdminEdit() {
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        const response = await axios.get(`/products/${productId}`);
+        const response = await instance.get(`/products/${productId}`);
         const { data } = response;
         setProductData(data);
       } catch (error) {
@@ -60,7 +60,7 @@ export default function AdminEdit() {
     };
 
     try {
-      const response = await axios.patch(`https://ecommerce-api.bridgeon.in/products/${productId}`, updatedProductData, {
+      const response = await instance.patch(`https://ecommerce-api.bridgeon.in/products/${productId}`, updatedProductData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

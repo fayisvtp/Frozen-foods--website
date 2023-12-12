@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 import { selectToken } from "../Redux/ItemSlice";
-import axios from "../User/products/AxiosInstance/AxiosInstance";
+import instance from "../User/products/AxiosInstance/AxiosInstance"
 const AdProduct = () => {
   const token = useSelector(selectToken);
   console.log(token)
@@ -22,7 +22,7 @@ const AdProduct = () => {
     formData.append("img", event.target.image.files[0]);
 
     try {
-      const response = await axios.post(
+      const response = await instance.post(
         "/products",formData,
 
         {

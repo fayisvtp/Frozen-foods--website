@@ -4,7 +4,7 @@ import {
   selectUserToken,
 } from "../../Redux/ItemSlice";
 import { useSelector } from "react-redux";
-import axios from "axios";
+import instance from './AxiosInstance/AxiosInstance'
 import { useEffect } from "react";
 
 import Navbar from "../../component/Navbar";
@@ -26,7 +26,7 @@ function Cart() {
   const nav = useNavigate()
   const viewCart = async (userId, token) => {
     try {
-      const response = await axios.get( `https://ecommerce-api.bridgeon.in/users/${userId}/cart`, {
+      const response = await instance.get( `/users/${userId}/cart`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -49,8 +49,8 @@ function Cart() {
 
   const removeFromCart = async (id) => {
     try {
-      const response = await axios.delete(
-        `https://ecommerce-api.bridgeon.in/users/${userId}/cart/${id}`,
+      const response = await instance.delete(
+        `/users/${userId}/cart/${id}`,
         {
           headers: {
             Authorization: `Bearer ${userToken}`,
@@ -81,8 +81,8 @@ function Cart() {
       console.log("User ID:", userId);
       console.log("User Token:", userToken);
 
-      const response = await axios.post(
-        `https://ecommerce-api.bridgeon.in/users/${userId}/wishlist/${productId}`,
+      const response = await instance.post(
+        `/users/${userId}/wishlist/${productId}`,
         null,
         {
           headers: {

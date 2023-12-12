@@ -9,7 +9,7 @@ import {
   MDBInput,
 } from "mdb-react-ui-kit";
 // import "./LoginAdmin.css";
-import axios from "axios";
+import axios from "../User/products/AxiosInstance/AxiosInstance";
 import {  Link, useNavigate } from "react-router-dom";
 import { useDispatch, } from "react-redux";
 import { setToken } from "../Redux/ItemSlice";
@@ -31,7 +31,7 @@ const login = async (event) =>{
    
  try {
    const response = await axios.post(
-     "https://ecommerce-api.bridgeon.in/login",
+     "/login",
      {
        email,
        password,

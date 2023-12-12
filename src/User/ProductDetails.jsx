@@ -1,11 +1,11 @@
 import React from 'react'
 
 import { useState,useEffect } from 'react';
-import axios from 'axios'
-import { SelectUserId, selectProduct, selectToken, selectUserToken, setProducts } from '../Redux/ItemSlice';
+import axios from "./products/AxiosInstance/AxiosInstance"
+import { SelectUserId, selectProduct, selectToken, selectUserToken, } from '../Redux/ItemSlice';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import {  MDBCol,  MDBCardBody, MDBRipple, MDBCardImage, MDBIcon, MDBBtn } from 'mdb-react-ui-kit';
+import {  MDBCol,  MDBCardBody, MDBRipple, MDBIcon } from 'mdb-react-ui-kit';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css'; 
 import './products/ProductDetails.css'
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -38,7 +38,7 @@ console.log('kooi');
     } else {
       // If the product is not found in the Redux store, make an API call to get it
       try {
-        const response = await axios.get(`https://ecommerce-api.bridgeon.in/products/${userId}?accessKey=e750a4e245dc6f3f299a`, {
+        const response = await axios.get(`/products/${userId}?accessKey=e750a4e245dc6f3f299a`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -66,7 +66,7 @@ console.log('kooi');
       console.log("User Token:", userToken);
   
       const response = await axios.post(
-        `https://ecommerce-api.bridgeon.in/users/${userId}/cart/${productId}`,
+        `/users/${userId}/cart/${productId}`,
         null, // Assuming no data payload, pass null if not needed
         {
           headers: {

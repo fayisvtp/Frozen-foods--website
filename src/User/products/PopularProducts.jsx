@@ -4,7 +4,7 @@ import { MDBContainer, MDBRow, MDBCol, MDBRipple } from "mdb-react-ui-kit";
 import { useEffect,useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectProduct, selectUserToken, setProducts } from '../../Redux/ItemSlice';
-import axios from 'axios'
+import instance from './AxiosInstance/AxiosInstance'
 import "./popularProducts.css"
 import { Link } from 'react-router-dom';
 export default function PopularProducts() {
@@ -13,15 +13,14 @@ export default function PopularProducts() {
  const products = useSelector (selectProduct)
  const dispatch = useDispatch()
  const [updatedProductData, setUpdatedProductData] = useState(null);
-//  const apiKey = import.meta.env.VITE_API_KEY;
-//  const baseUrl = import.meta.env.VITE_BASE_URL
+ const apiKey = process.env.REACT_APP_ACCESS_KEY 
 const dealerToken = token
 
 
 const getAllProducts = async (token) => {
   try {
-    const response = await axios.get(
-      "https://ecommerce-api.bridgeon.in/products?accessKey=e750a4e245dc6f3f299a",
+    const response = await instance.get(
+      `/products?accessKey=${apiKey}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -48,12 +47,10 @@ useEffect(() => {
 const data = products.filter((item)=> item.category ==="Popular")
 console.log("popular",data);
 
-  const theme = useTheme();
-  const [isFavorite, setIsFavorite] = React.useState(false);
 
-  const handleFavoriteClick = () => {
-    setIsFavorite(!isFavorite);
-  };
+
+
+
 
   return (
     <>

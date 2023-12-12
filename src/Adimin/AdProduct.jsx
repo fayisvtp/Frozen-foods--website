@@ -2,10 +2,10 @@
 
 
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
+
 import { Link } from "react-router-dom";
 import { selectToken } from "../Redux/ItemSlice";
-
+import axios from "../User/products/AxiosInstance/AxiosInstance";
 const AdProduct = () => {
   const token = useSelector(selectToken);
   console.log(token)
@@ -23,7 +23,7 @@ const AdProduct = () => {
 
     try {
       const response = await axios.post(
-        "https://ecommerce-api.bridgeon.in/products",formData,
+        "/products",formData,
 
         {
          

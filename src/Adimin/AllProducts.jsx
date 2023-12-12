@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../User/products/AxiosInstance/AxiosInstance";
 import { useDispatch, useSelector } from "react-redux";
 import { selectProduct, selectToken } from "../Redux/ItemSlice";
 import { Link } from "react-router-dom";
@@ -19,7 +19,7 @@ function AllProducts() {
   const getAllProducts = async (token) => {
     try { 
       const response = await axios.get(
-      " https://ecommerce-api.bridgeon.in/products?accessKey=e750a4e245dc6f3f299a" ,  
+      "/products?accessKey=e750a4e245dc6f3f299a" ,  
     {
           headers: {
             Authorization: `Bearer ${token}`,

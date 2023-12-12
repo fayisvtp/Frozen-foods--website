@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit'
 import { useSelector } from 'react-redux'
 import { selectToken } from '../Redux/ItemSlice'
-import axios from 'axios'
+import axios from '../User/products/AxiosInstance/AxiosInstance'
 function Users() {
 
 const [users,setUsers] = useState([])
@@ -11,7 +11,7 @@ const token =useSelector(selectToken)
 
 const findUsers = async () => {
   try {
-    const response = await axios.get('https://ecommerce-api.bridgeon.in/users', {
+    const response = await axios.get('/users', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -33,7 +33,7 @@ useEffect (()=>{
 
 const deleteUser = async (userId, token) => {
   try {
-    const response = await axios.delete(`https://ecommerce-api.bridgeon.in/users/${userId}`, {
+    const response = await axios.delete(`/users/${userId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

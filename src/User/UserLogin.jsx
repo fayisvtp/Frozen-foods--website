@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import {
     MDBContainer,
     MDBInput,
-    MDBCheckbox,
     MDBBtn,
-    MDBIcon
   }
   from 'mdb-react-ui-kit';
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
+import axios from "./products/AxiosInstance/AxiosInstance";
 import { setUserToken} from "../Redux/ItemSlice";
 import {setUserId} from "../Redux/ItemSlice"
 
@@ -45,7 +43,7 @@ function UserLogin() {
       
     try {
       const response = await axios.post(
-        "https://ecommerce-api.bridgeon.in/login",
+        "/login",
         {
           email,
           password,
@@ -71,7 +69,7 @@ function UserLogin() {
 
    
     try {
-      const response = await axios.post('https://ecommerce-api.bridgeon.in/users/login', {
+      const response = await axios.post('/users/login', {
         accessKey,
         email,
         password,

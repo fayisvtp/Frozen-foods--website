@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit'
 import { useSelector } from 'react-redux'
-import { selectToken } from '../Redux/ItemSlice'
+import { Select_admin_status, selectToken } from '../Redux/ItemSlice'
 import instance from '../User/products/AxiosInstance/AxiosInstance'
+import AdminNav from './AdminNav'
 function Users() {
 
 const [users,setUsers] = useState([])
 const [isdelete,setIsdelete] = useState([])
 const token =useSelector(selectToken)
+const isAdmin = useSelector(Select_admin_status)
+console.log(isAdmin)
 
 const findUsers = async () => {
   try {
@@ -57,6 +60,7 @@ const handletrash = (id) => {
 
   return (
     <div>
+      <AdminNav/>
      <div className="users justify-content-center bg-primary text-center text-light">
   <h1>All Users</h1>
 </div>

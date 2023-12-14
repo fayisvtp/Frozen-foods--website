@@ -1,176 +1,3 @@
-// import React from "react";
-// import {
-//   MDBBtn,
-//   MDBContainer,
-//   MDBRow,
-//   MDBCol,
-//   MDBCard,
-//   MDBCardBody,
-//   MDBCardImage,
-//   MDBInput,
-//   MDBIcon,
-// } from "mdb-react-ui-kit";
-
-// import { Link, useNavigate } from "react-router-dom";
-// import { useDispatch } from "react-redux";
-// import { setUserToken } from "../../Redux/ItemSlice";
-// import { useFormik } from "formik";
-// import { FormValidation } from "../../Validation";
-// import instance from './AxiosInstance/AxiosInstance'
-
-
-
-// function Register() {
-//   const navigate = useNavigate();
-//   const dispatch = useDispatch();
-//   const apiKey = process.env.REACT_APP_ACCESS_KEY 
-
-//   const formik = useFormik({
-//     initialValues: {
-//       username: "",
-//       email: "",
-//       password: "",
-//     },
-//     validationSchema: FormValidation,
-//     onSubmit: (values) => {
-//       registerUser({apiKey}, values.username, values.email, values.password);
-//     },
-//   });
-
-//   const registerUser = async (accessKey, username, email, password) => {
-//     try {
-//       const response = await instance.post(
-//         "/users/register",
-//         {
-//           accessKey,
-//           username,
-//           email,
-//           password,
-//         }
-//       );
-//       const { status, message, data } = response.data;
-//       if (status === "success") {
-//         dispatch(setUserToken(data.token));
-//         navigate("/userLogin");
-
-//         console.log("Registration successful. Token:", data.token);
-//       } else {
-//         console.error("Registration failed. Message:", message);
-//       }
-//     } catch (error) {
-//       console.error("Error:", error.message);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <MDBContainer fluid>
-//         <MDBCard className="text-black m-5" style={{ borderRadius: "25px" }}>
-//           <MDBCardBody>
-//             <MDBRow>
-//               <MDBCol
-//                 md="10"
-//                 lg="6"
-//                 className="order-2 order-lg-1 d-flex flex-column align-items-center"
-//               >
-//                 <form onSubmit={formik.handleSubmit}>
-//                   <h3 className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
-//                     Sign up
-//                   </h3>
-
-//                   <div className="d-flex flex-row align-items-center mb-4 ">
-//                     <MDBIcon fas icon="user me-3" size="lg" />
-//                     <MDBInput
-//                       label="Your Name"
-//                       id="username"
-//                       type="text"
-//                       className="w-100"
-//                       {...formik.getFieldProps("username")}
-//                     />
-//                     {formik.touched.username && formik.errors.username ? (
-//                       <div className="text-danger">{formik.errors.username}</div>
-//                     ) : null}
-//                   </div>
-
-//                   <div className="d-flex flex-row align-items-center mb-4">
-//                     <MDBIcon fas icon="envelope me-3" size="lg" />
-//                     <MDBInput
-//                       label="Your Email"
-//                       id="email"
-//                       type="email"
-//                       {...formik.getFieldProps("email")}
-//                     />
-//                     {formik.touched.email && formik.errors.email ? (
-//                       <div className="text-danger">{formik.errors.email}</div>
-//                     ) : null}
-//                   </div>
-
-//                   <div className="d-flex flex-row align-items-center mb-4">
-//                     <MDBIcon fas icon="lock me-3" size="lg" />
-//                     <MDBInput
-//                       label="Password"
-//                       id="password"
-//                       type="password"
-//                       {...formik.getFieldProps("password")}
-//                     />
-//                     {formik.touched.password && formik.errors.password ? (
-//                       <div className="text-danger">{formik.errors.password}</div>
-//                     ) : null}
-//                   </div>
-
-//                   <MDBBtn className="mb-4" size="lg" type="submit">
-//                     Register
-//                   </MDBBtn>
-
-//                   <h5>
-//                     Already registered? <Link to={"/userlogin"}>Click Here</Link>
-//                   </h5>
-//                 </form>
-//               </MDBCol>
-
-//               <MDBCol
-//                 md="10"
-//                 lg="6"
-//                 className="order-1 order-lg-2 d-flex align-items-center"
-//               >
-//                 <MDBCardImage src="./register.jpg" fluid />
-//               </MDBCol>
-//             </MDBRow>
-//           </MDBCardBody>
-//         </MDBCard>
-//       </MDBContainer>
-//     </div>
-//   );
-// }
-
-// export default Register;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React from "react";
 import {
   MDBBtn,
@@ -183,110 +10,152 @@ import {
   MDBInput,
   MDBIcon,
 } from "mdb-react-ui-kit";
-import instance from '../products/AxiosInstance/AxiosInstance'
+import instance from "../products/AxiosInstance/AxiosInstance";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setUserToken } from "../../Redux/ItemSlice";
-
-
+import { setUserToken, setUserId } from "../../Redux/ItemSlice";
+import { FormValidation } from "../../Validation";
+import { useFormik } from "formik";
+import {reg} from "/coding/Projects/frostybytes/src/assets/family.jpg"
+import toast from "react-hot-toast";
+const initialValues = {
+  name: "",
+  email: "",
+  password: "",
+};
 
 function Register() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { values, handleBlur, handleChange, handleSubmit, errors } = useFormik({
+    initialValues: initialValues,
+    validationSchema: FormValidation,
+    onSubmit: async (values) => {
+      console.log(values);
+      const { name, email, password } = values;
 
+      const accessKey = process.env.REACT_APP_ACCESS_KEY;
 
-
-  const registerUser = async (accessKey, username, email, password) => {
-    try {
-      const response = await instance.post(
-        "https://ecommerce-api.bridgeon.in/users/register",
-        {
+      try {
+        const response = await instance.post("/users/register", {
           accessKey,
-          username,
+          username: name,
           email,
           password,
+        });
+        const { status, data } = response.data;
+        if (status === "success") {
+          console.log("id", data.userId);
+          dispatch(setUserToken(data.token));
+          dispatch(setUserId(data.userId));
+
+          toast.success('Registration successful',{
+            style:{
+              backgroundColor:'green',
+              color:'white'
+
+            }
+          })
+          navigate("/userlogin");
+        } else {
+          console.error("Registration failed.");
         }
-      );
-      const { status, message, data } = response.data;
-      if (status === "success") {
-        dispatch(setUserToken(data.token));
-        navigate("/userLogin");
-
-        console.log("Registration successful. Token:", data.token);
-      } else {
-        console.error("Registration failed. Message:", message);
+      } catch (error) {
+     
+        toast.error("Network Error: didn't work.")
       }
-    } catch (error) {
-      console.error("Error:", error.message);
-    }
-  };
-
-  const handleRegistration = (event) => {
-    event.preventDefault();
-    const username = event.target.username.value;
-    const email = event.target.email.value;
-    const password = event.target.password.value;
-
-    registerUser("e750a4e245dc6f3f299a", username, email, password);
-  };
+    },
+  });
 
   return (
-    <div>
-      <MDBContainer fluid>
-        <MDBCard className="text-black m-5" style={{ borderRadius: "25px" }}>
-          <MDBCardBody>
-            <MDBRow>
-              <MDBCol
-                md="10"
-                lg="6"
-                className="order-2 order-lg-1 d-flex flex-column align-items-center"
-              >
-                <form onSubmit={handleRegistration}>
-                  <h3 className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
-                    Sign up
-                  </h3>
+    <>
+    <div className="reg_form bg-success" style={{  minHeight: '100vh' }}>
+     <MDBContainer className="py-5">
+  <MDBCard className="text-black p-4 w-100">
+    <MDBCardBody>
+      <MDBRow>
+        <MDBCol className="order-2 order-lg-1 d-flex flex-column align-items-center">
+          <form onSubmit={handleSubmit} className="w-100">
+            <h3 className="text-center h1 fw-bold mb-5 mt-4">
+              Sign up
+            </h3>
 
-                  <div className="d-flex flex-row align-items-center mb-4 ">
-                    <MDBIcon fas icon="user me-3" size="lg" />
-                    <MDBInput
-                      label="Your Name" id="username" type="text"className="w-100" />
-                  </div>
+            <div className="mb-4">
+              <MDBIcon fas icon="user me-3" size="lg" />
+              <MDBInput
+                className="form-control"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.username}
+                label="Your Name"
+                id="username"
+                type="text"
+                name="name"
+              />
+              {errors.name && (
+                <small className="text-danger">{errors.name}</small>
+              )}
+            </div>
 
-                  <div className="d-flex flex-row align-items-center mb-4">
-                    <MDBIcon fas icon="envelope me-3" size="lg" />
-                    <MDBInput label="Your Email" id="email" type="email" />
-                  </div>
+            <div className="mb-4">
+              <MDBIcon fas icon="envelope me-3" size="lg" />
+              <MDBInput
+                className="form-control"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.email}
+                label="Your Email"
+                id="email"
+                type="email"
+                name="email"
+              />
+              {errors.email && (
+                <small className="text-danger">{errors.email}</small>
+              )}
+            </div>
 
-                  <div className="d-flex flex-row align-items-center mb-4">
-                    <MDBIcon fas icon="lock me-3" size="lg" />
-                    <MDBInput label="Password" id="password" type="password" />
-                  </div>
+            <div className="mb-4">
+              <MDBIcon fas icon="lock me-3" size="lg" />
+              <MDBInput
+                className="form-control"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.password}
+                label="Password"
+                id="password"
+                type="password"
+                name="password"
+              />
+              {errors.password && (
+                <small className="text-danger">{errors.password}</small>
+              )}
+            </div>
 
-                 
-              
-                  <MDBBtn className="mb-4" size="lg" type = "submit">
-                    Register
-                  </MDBBtn>
-                  
-                  <h5>
-                    Aleady registered?{" "}
-                    <Link to={"/userlogin"}>Click Here</Link>
-                  </h5>
-                </form>
-              </MDBCol>
+            <MDBBtn className="btn-primary mb-4" size="lg" type="submit">
+              Register
+            </MDBBtn>
 
-              <MDBCol
-                md="10"
-                lg="6"
-                className="order-1 order-lg-2 d-flex align-items-center"
-              >
-                <MDBCardImage src="./register.jpg" fluid />
-              </MDBCol>
-            </MDBRow>
-          </MDBCardBody>
-        </MDBCard>
-      </MDBContainer>
+            <h5 className="text-center">
+              Already registered? <Link to="/userlogin">Click Here</Link>
+            </h5>
+          </form>
+        </MDBCol>
+
+        <MDBCol
+          md="10"
+          lg="6"
+          className="order-1 order-lg-2 d-flex align-items-center"
+        >
+         <MDBCardImage className="reg_form_image border reg-form-hover" style={{ borderRadius: '0', width: '100vh' }} src="./register.jpg" fluid />
+
+        </MDBCol>
+      </MDBRow>
+    </MDBCardBody>
+  </MDBCard>
+</MDBContainer>
+
     </div>
+    </>
   );
 }
 

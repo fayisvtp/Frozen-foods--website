@@ -3,14 +3,15 @@ import {
     MDBContainer,
     MDBInput,
     MDBBtn,
+    MDBCardImage
   }
   from 'mdb-react-ui-kit';
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import instance from "./products/AxiosInstance/AxiosInstance";
 import { setUserToken} from "../Redux/ItemSlice";
-import {setUserId} from "../Redux/ItemSlice"
-
+import {setUserId,setToken,setAdmin} from "../Redux/ItemSlice"
+import image from "/coding/Projects/frostybytes/src/assets/reg.jpg"
 function UserLogin() {
 
     // const isSignIn = useSelector((state)=> state.product.isSignIn)
@@ -51,12 +52,11 @@ function UserLogin() {
       );
       const { status, message, data } = response.data;
       console.log(response.data);
+      const token = data.token
       if (status === "success") {
-      
-
-       
-        
-        navigate("/allproduct");
+        dispatch(setToken(token));
+        dispatch(setAdmin(true));
+        navigate("/allproducts");
       } else {
         console.error("Login failed. Message:", message);
       }
@@ -99,41 +99,45 @@ function UserLogin() {
       console.error(`token${accessKey}`, error.message);
     }
   }
-
+ 
 // *****************************************************************************************************
 
   return (
-    <div>
-      <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
-        <form onSubmit={toLogin}>
-        <MDBInput
-          wrapperClass="mb-4"
-          label="Email address"
-          id="email"
-          type="email"
-        />
-        <MDBInput
-          wrapperClass="mb-4"
-          label="Password"
-          id="password"
-          type="password"
-        />
+    <>    <div className="user_login_page bg-dark d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
+      <MDBContainer className="p-4 my-4 d-flex flex-column align-items-center w-100">
+        <form onSubmit={toLogin} className="w-100">
+          <MDBInput
+            wrapperClass="mb-4 w-100"
+            label="Email address"
+            id="email"
+            type="email"
+            
+          />
+          <MDBInput
+            wrapperClass="mb-4 w-100"
+            label="Password"
+            id="password"
+            type="password"
+          />
 
-     
+          <MDBBtn type="submit" className="mb-4 w-100">Sign in</MDBBtn>
 
-        <MDBBtn type="submit" className="mb-4">Sign in</MDBBtn>
-
-        <div className="text-center">
-          <p>
-            Not a member? 
-            <Link to='/register'>Register</Link> 
-          </p>
-         
-        </div>
+          <div className="text-center">
+            <p className="notamembar text-white mb-0">
+              Not a member?
+              <Link to='/register' className="ml-1">Register</Link>
+            </p>
+          </div>
         </form>
+      <MDBCardImage className="login_page mr-4 border reg-form-hover" style={{ borderRadius: '0', width: '70vh' }} src="./register.jpg" fluid  />
       </MDBContainer>
     </div>
+    </>
+
   );
 }
 
 export default UserLogin;
+
+
+

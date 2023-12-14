@@ -21,36 +21,30 @@ function LoginAdmin() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-const login = async (event) =>{
- event.preventDefault()
- const email = event.target.form1.value
- console.log(email);
- const password = event.target.form2.value
- console.log(password);
-
-   
- try {
-   const response = await instance.post(
-     "/login",
-     {
-       email,
-       password,
-      }
-      );
-      if(response.status === 200){
-        console.log("neToken",response.data.data.token)
-        dispatch(setToken( response.data.data.token))
-        navigate('/allproducts')
-      }
-      else {
+  const login = async (event) => {
+    event.preventDefault();
+    console.log("Login function called");
+  
+    const email = event.target.form1.value;
+    const password = event.target.form2.value;
+  
+    try {
+      const response = await instance.post("/login", { email, password });
+  
+      if (response.status === 200) {
+        console.log("New Token", response.data.data.token);
+        dispatch(setToken(response.data.data.token));
+        navigate('/allproducts');
+      } else {
         console.error("Login failed. Message:", response.data.data.message);
       }
-    console.log("responce",response)
- }
- catch (err){
-  console.error("Error:", err.message);
- }
- }
+  
+      console.log("Response", response);
+    } catch (err) {
+      console.error("Error:", err.message);
+    }
+  };
+  
 
   return (
     <MDBContainer fluid>
@@ -86,9 +80,10 @@ const login = async (event) =>{
 
               {/* <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">
               Forgot password?</a></p> */}
-              <MDBBtn type=""  outline className="mx-2 px-5" color="white" size="lg">
-                Login
-              </MDBBtn>
+              <MDBBtn type="submit" outline className="mx-2 px-5" color="white" size="lg">
+  Login
+</MDBBtn>
+
             </MDBCardBody>
           </MDBCard>
         </MDBCol>

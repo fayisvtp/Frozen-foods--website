@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 import { selectToken } from "../Redux/ItemSlice";
-import instance from "../User/products/AxiosInstance/AxiosInstance"
+import instance from "../User/products/AxiosInstance/AxiosInstance";
+
 const AdProduct = () => {
   const token = useSelector(selectToken);
   console.log(token)

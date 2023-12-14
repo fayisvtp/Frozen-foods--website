@@ -1,6 +1,6 @@
 
 
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LoginAdmin from './Adimin/LoginAdmin';
 // import './App.css'
 import Home from './component/Home';
@@ -13,21 +13,28 @@ import Register from './User/products/Register';
 import UserLogin from './User/UserLogin';
 import FoodCost from './component/FoodCost';
 import Users from './Adimin/Users';
-import ProductSlider from './User/products/ProductSlider';
 import ProductDetails from './User/ProductDetails';
 import Cart from './User/products/Cart';
 import Wishlist from './User/products/Wishlist';
 
+import toast, { Toaster } from 'react-hot-toast';
+import { useSelector } from 'react-redux';
+import { Select_admin_status } from './Redux/ItemSlice';
 
 
 
 function App() {
 
+  const isAdmin = useSelector(Select_admin_status)
+
   return (
     <div >
+      <BrowserRouter>
+      <Toaster position="top-center"/>  
       <Routes>
 
       {/* ------------------------user side------------------------ */}
+      <>
       <Route path='/' element ={<Home/>}/>
       <Route path='/register' element ={<Register/>}/>
       <Route path='product1' element ={<Product1/>}/>
@@ -37,21 +44,21 @@ function App() {
       <Route path='/cart' element ={<Cart/>}/>
       <Route path='/wishlist' element ={<Wishlist/>}/>
       {/* <Navbar/> */}
-      
+      </>
 
       {/* ------------------------Admin side------------------------ */}
- 
-
-       <Route path='/adminhome' element= {<AdminHome/>}/>
+      {isAdmin? 
+        <>
+      <Route path='/adminhome' element= {<AdminHome/>}/>
       <Route path='/adproduct' element ={<AdProduct/>}/>
       <Route path='/allproducts' element ={<AllProducts/>}/>
       <Route path="/adminedit/:productId" element={<AdminEdit />} /> 
       <Route path='/adminlogin' element ={<LoginAdmin/>}/> 
-      <Route path='/users' element ={<Users/>}/> 
-
-   
+      <Route path='/users' element={<Users />} />
+      </>
+       : ""}
       </Routes>
-     
+      </BrowserRouter>
     </div>
   );
 }

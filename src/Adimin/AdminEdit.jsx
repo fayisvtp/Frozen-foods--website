@@ -16,7 +16,6 @@ export default function AdminEdit() {
   const { productId } = useParams();
 
 
-  // State to manage form data
   const [productData, setProductData] = useState({
     title: "",
     price: 0,
@@ -60,7 +59,7 @@ export default function AdminEdit() {
     };
 
     try {
-      const response = await instance.patch(`https://ecommerce-api.bridgeon.in/products/${productId}`, updatedProductData, {
+      const response = await instance.patch(`/products/${productId}`, updatedProductData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -11,7 +11,8 @@ import { useDispatch, useSelector } from "react-redux";
 import instance from "./products/AxiosInstance/AxiosInstance";
 import { setUserToken} from "../Redux/ItemSlice";
 import {setUserId,setToken,setAdmin} from "../Redux/ItemSlice"
-import image from "/coding/Projects/frostybytes/src/assets/reg.jpg"
+import toast from "react-hot-toast";
+
 function UserLogin() {
 
     // const isSignIn = useSelector((state)=> state.product.isSignIn)
@@ -50,6 +51,7 @@ function UserLogin() {
           password,
         }
       );
+      console.log("resss",response)
       const { status, message, data } = response.data;
       console.log(response.data);
       const token = data.token
@@ -88,14 +90,27 @@ function UserLogin() {
 
         console.log('Login successful. Token:', token);
         navigate('/product1')
-        alert('Login Successfull')
+        // alert('Login Successfull')
+        toast.success('Welcome to frostybytes.', {
+          style: {
+            border: '1px solid #713200',
+            padding: '16px',
+            color: '#713200',
+            height:'20vh',
+            backgroundColor:'#618264'
+          },
+          iconTheme: {
+            primary: '#713200',
+            secondary: '#FFFAEE',
+          },
+        });
       } else {
         alert('Login Fail')
         console.error('Login failed. Message:', message);
         alert('Login Fail')
       }
     } catch (error) {
-      alert('Login Failed, Please check Your UserName and password')
+      toast.error('Login Failed, Please check Your UserName and password')
       console.error(`token${accessKey}`, error.message);
     }
   }
@@ -103,7 +118,8 @@ function UserLogin() {
 // *****************************************************************************************************
 
   return (
-    <>    <div className="user_login_page bg-dark d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
+    <>    
+    <div className="user_login_page bg-dark d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
       <MDBContainer className="p-4 my-4 d-flex flex-column align-items-center w-100">
         <form onSubmit={toLogin} className="w-100">
           <MDBInput

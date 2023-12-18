@@ -13,6 +13,7 @@ import {
 import Navbar from '../../component/Navbar';
 import { useSelector } from 'react-redux';
 import { SelectUserId, selectUserToken } from '../../Redux/ItemSlice';
+import SocialMedia from '../SocialMedia';
 
 function Wishlist() {
     
@@ -77,6 +78,7 @@ function Wishlist() {
       };
 
   return (
+    <>
     <div>
         <Navbar/>
         <MDBContainer fluid className="my-5">
@@ -131,7 +133,9 @@ function Wishlist() {
       </MDBRow>
       ))}
     </MDBContainer>
+    <SocialMedia/>
     </div>
+    </>
   )
 }
 

@@ -15,6 +15,8 @@ import {
   MDBTableBody,
 } from "mdb-react-ui-kit";
 import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import SocialMedia from "../SocialMedia";
 
 function Cart() {
   const userId = useSelector(SelectUserId);
@@ -61,9 +63,7 @@ function Cart() {
       if (response.data.status === 'success') {
         // Remove the item from the local state
         setCartItems((items) => items.filter((item) => item.id !== id));
-        console.log('Item deleted successfully.');
-        alert('Item deleted successfully.');
-
+        toast.success('Item deleted successfully.')
         nav("/")
       } 
       
@@ -92,7 +92,7 @@ function Cart() {
       );
 
       if (response.data.status === "success") {
-        console.log("Product added to wishlist.");
+        toast.success("added to wishlist")
         nav("/")
  
       } else {
@@ -112,8 +112,9 @@ function Cart() {
   return (
     <>
       <Navbar />
+      <h1 className="Cart_list text-center text-danger" style={{textDecoration:'underline'}}>Cart List</h1>
       <MDBTable align="middle">
-       
+      <div className=""></div>
         
         <MDBTableBody>
           {cartItems.map ((value)=>{
@@ -157,9 +158,9 @@ function Cart() {
         </MDBTableBody>
       </MDBTable>
      <div className="col-6 ">
-      <div className="btn btn-danger col-3"> Chekout</div>
-      <Link to={"/wishlist"} className="btn btn-danger col-3"> wishliist</Link >
+  
      </div>
+     <SocialMedia/>
     </>
   );
 }

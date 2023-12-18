@@ -59,8 +59,9 @@ const handletrash = (id) => {
 };
 
   return (
-    <div>
+    <>
       <AdminNav/>
+    <div>
      <div className="users justify-content-center bg-primary text-center text-light">
   <h1>All Users</h1>
 </div>
@@ -113,6 +114,7 @@ const handletrash = (id) => {
       </MDBTableBody>
     </MDBTable>
     </div>
+    </>
   )
 }
 

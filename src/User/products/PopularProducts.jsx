@@ -46,17 +46,12 @@ useEffect(() => {
 const data = products.filter((item)=> item.category ==="Popular")
 console.log("popular",data);
 
-
-
-
-
-
   return (
     <>
-
+<div>
 <MDBContainer fluid className="my-5 text-center popularproductss">
         <MDBRow>
-          <h1>future products</h1>
+          <h1 style={{color:'white'}}>Future Products</h1>
           {data.map((item) => (
             <MDBCol key={item._id} md="12" lg="4" className="mb-4 p-5">
               <Link to={`/details/${item._id}`}>
@@ -103,7 +98,7 @@ console.log("popular",data);
           ))}
         </MDBRow>
       </MDBContainer>
-    
+      </div>
     </>
   );
 }

@@ -1,5 +1,6 @@
 
 import { createSlice } from "@reduxjs/toolkit";
+import { act } from "react-dom/test-utils";
 
 const ItemSlice = createSlice({
   name: "item",
@@ -10,7 +11,8 @@ const ItemSlice = createSlice({
     isSignIn: true,
     // isCart: false,
     userId: localStorage.getItem("userId") || null,
-    isAdmin :localStorage.getItem ("isAdmin")==='true'
+    isAdmin :localStorage.getItem ("isAdmin")==='true',
+    isuser : localStorage.getItem ("isuser")==='true'
   },
   reducers: {
     setToken: (state, action) => {
@@ -30,11 +32,20 @@ const ItemSlice = createSlice({
     setSignIn: (state, action) => {
       state.isSignIn = action.payload;
     },
+    setUserLogin: (state,action )=>{
+      state.isuser =action.payload
+      localStorage.setItem("isuser",action.payload.toString())
+},
 
+    clearUserLogin:(state)=>{
+      state.isuser = false
+      localStorage.removeItem('isuser')
+    },
     setUserId: (state, action) => {
       state.userId = action.payload;
       localStorage.setItem("userId", action.payload);
     },
+
     setAdmin:(state,action)=>{
       state.isAdmin=action.payload
       
@@ -43,10 +54,17 @@ const ItemSlice = createSlice({
       state.isAdmin = action.payload;
       localStorage.setItem('isAdmin',action.payload.toString());
     },
-  
-
+    clearUserId :(state)=>{
+      state.userId = null;
+      localStorage.removeItem("userId")
+    },
+    clearUserToken : (state)=>{
+      state.userId = null;
+      localStorage.removeItem("userId")
+    }
   },
 });
+
 
 export const {
   setToken,
@@ -56,7 +74,11 @@ export const {
   setSignIn,
   setUserId,
   setAdmin,
-  clearIsAdmin
+  clearIsAdmin,
+  setUserLogin,
+  clearUserId,
+  clearUserToken,
+  clearUserLogin
 } = ItemSlice.actions;
 
 export const selectToken = (state) => state.item.token;

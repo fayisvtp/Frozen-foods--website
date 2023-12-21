@@ -79,7 +79,7 @@ function ProductDetails() {
         );
       }
     } catch (error) {
-      console.error("error");
+      toast.error("Already Added.");
     }
   };
 

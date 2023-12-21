@@ -11,9 +11,19 @@ import {
   MDBCollapse
 } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { clearUserId, clearUserLogin, clearUserToken } from '../Redux/ItemSlice';
+import toast from 'react-hot-toast';
 
 export default function Navbar() {
   const [openNavColor, setOpenNavColor] = useState(false);
+  const dispatch = useDispatch()
+  const handlelogout = ()=>{
+      dispatch(clearUserToken())
+      dispatch(clearUserId())
+      dispatch(clearUserLogin())
+      toast.error ("logout")
+  }
 
   return (
     <>
@@ -41,6 +51,12 @@ export default function Navbar() {
                 <Link to={"/userlogin"}>
                                 <MDBNavbarLink>Login</MDBNavbarLink>
                                 </Link>
+
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+             
+                                <MDBNavbarLink onClick={handlelogout}>LogOut</MDBNavbarLink>
+                              
 
               </MDBNavbarItem>
               <MDBNavbarItem>

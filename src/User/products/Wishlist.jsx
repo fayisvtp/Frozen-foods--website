@@ -79,14 +79,15 @@ function Wishlist() {
 
   return (
     <>
-    <div>
+<div className="wish_list_session" style={{ backgroundImage: 'linear-gradient(to right top, #e10000, #ac001e, #740522, #3c0f1a, #000000)' }}>
         <Navbar/>
-        <MDBContainer fluid className="my-5">
+        <h1 className="text-center text-light" style={{fontSize:'20vh'}}>Wish List </h1>
+        <MDBContainer fluid className="my-5 p-4">
         {wishliistitem.map((value) => (
          
           <MDBRow key={value._id}>
           {value.wishlist.map((item) => (
-        <MDBCol  md="12" lg="4" className="mb-4 mb-lg-0">
+        <MDBCol  md="12" lg="4" className="mb-4 mb-lg-0 p-3">
           <MDBCard>
             {/* <div className="d-flex justify-content-between p-3">
              

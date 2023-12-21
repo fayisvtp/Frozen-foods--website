@@ -58,7 +58,7 @@ function UserLogin() {
       if (status === "success") {
         dispatch(setToken(token));
         dispatch(setAdmin(true));
-        navigate("/allproducts");
+        navigate("/adminhome");
       } else {
         console.error("Login failed. Message:", message);
       }

@@ -32,7 +32,7 @@ function App() {
       <BrowserRouter>
       <Toaster position="top-center"/>  
       <Routes>
-
+      <Route path='/adminhome' element= {<AdminHome/>}/>
       {/* ------------------------user side------------------------ */}
       <>
       <Route path='/' element ={<Home/>}/>
@@ -49,7 +49,7 @@ function App() {
       {/* ------------------------Admin side------------------------ */}
       {isAdmin? 
         <>
-      <Route path='/adminhome' element= {<AdminHome/>}/>
+      {/* <Route path='/adminhome' element= {<AdminHome/>}/> */}
       <Route path='/adproduct' element ={<AdProduct/>}/>
       <Route path='/allproducts' element ={<AllProducts/>}/>
       <Route path="/adminedit/:productId" element={<AdminEdit />} /> 

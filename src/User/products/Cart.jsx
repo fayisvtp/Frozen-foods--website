@@ -6,7 +6,7 @@ import {
 import { useSelector } from "react-redux";
 import instance from './AxiosInstance/AxiosInstance'
 import { useEffect } from "react";
-
+import DeleteIcon from '@mui/icons-material/Delete';
 import Navbar from "../../component/Navbar";
 import {
   MDBBtn,
@@ -112,55 +112,52 @@ function Cart() {
   return (
     <>
       <Navbar />
-      <h1 className="Cart_list text-center text-danger" style={{textDecoration:'underline'}}>Cart List</h1>
-      <MDBTable align="middle">
-      <div className=""></div>
-        
-        <MDBTableBody>
-          {cartItems.map ((value)=>{
-      //  {cartItems.map ((value)=>{
-        return value.cart.map((item)=>{
-            return(
-          <tr>
-            <td>
-              <div className="d-flex align-items-center">
-                <img
-                  src={item.image}
-                  alt=""
-                  style={{ width: "45px", height: "45px" }}
-                  className="rounded-circle"
-                />
-                <div className="ms-3">
-                  <p className="fw-bold mb-1"> {item.title}</p>
-                  
+      <div className="cart-LIst" style={{ backgroundImage: 'linear-gradient(to right top, #875800, #723a16, #52251c, #2d1517, #000000)' }}>
+  <h1 className="text-center text-danger" style={{ fontSize: '20vh' }}>Cart </h1>
+  <MDBTable align="middle" style={{ backgroundColor: 'transparent' }}>
+    <div className=""></div>
+    <MDBTableBody>
+      {cartItems.map((value) => {
+        return value.cart.map((item) => {
+          return (
+            <tr>
+              <td>
+                <div className="d-flex align-items-center">
+                  <img
+                    src={item.image}
+                    alt=""
+                    style={{ width: "45px", height: "45px" }}
+                    className="rounded-circle"
+                  />
+                  <div className="ms-3">
+                    <p className="fw-bold mb-1"> {item.title}</p>
+                  </div>
                 </div>
-              </div>
-            </td>
-          
-            <td> <h5> ₹{item.price}  </h5> </td>
-            <td>
-              <MDBBtn 
-              onClick={()=>removeFromCart(item._id)}
-               color="link" rounded size="sm">
-                Remove
-              </MDBBtn>
+              </td>
+              <td> <h5> ₹{item.price}  </h5> </td>
+              <td>
+                <MDBBtn onClick={() => removeFromCart(item._id)} color="link" rounded size="sm">
+                  <DeleteIcon /> {/* Replace 'Remove' text with DeleteIcon */}
+                </MDBBtn>
               </td>
               <td>
-              <MDBBtn 
-              onClick={()=>wishliisthandle(item._id)}
-               color="link" rounded size="sm">
-                save to later
-              </MDBBtn>
-            </td>
-          </tr>      
-        )})
-       })}
-        </MDBTableBody>
-      </MDBTable>
-     <div className="col-6 ">
-  
-     </div>
-     <SocialMedia/>
+                <MDBBtn
+                  onClick={() => wishliisthandle(item._id)}
+                  color="link" rounded size="sm">
+                  save to later
+                </MDBBtn>
+              </td>
+            </tr>
+          );
+        })
+      })}
+    </MDBTableBody>
+  </MDBTable>
+  <div className="col-6 ">
+
+  </div>
+  <SocialMedia/>
+</div>
     </>
   );
 }
@@ -168,56 +165,3 @@ function Cart() {
 export default Cart;
 
  
-
-{
-  /* <div className="d-flex-col container">
-<Table striped bordered hover>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Title</th>
-      <th>Category</th>
-      <th>Price</th>
-      <th>Quantity</th>
-      <th>Total</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    {cartItems.map((item) => (
-      <tr key={item._id}>
-        <td>
-          <img
-            src={item.image}
-            alt={item.title}
-            style={{ width: "50px" }}
-          />
-        </td>
-        <td>{item.title}</td>
-        <td>{item.category}</td>
-        <td>{item.price}</td>
-        <td>
-          <Button className="m-1" variant="outline-primary" fds>
-            -
-          </Button>
-          {item.qty}
-          <Button das className="m-1" variant="outline-primary">
-            +
-          </Button>
-        </td>
-
-        <td>
-          <Button
-            onClick={() => removeFromCart(item._id)}
-            className="ms-3"
-            variant="outline-danger"
-          >
-            Remove
-          </Button>
-        </td>
-      </tr>
-    ))}
-  </tbody>
-</Table>
-</div> */
-}

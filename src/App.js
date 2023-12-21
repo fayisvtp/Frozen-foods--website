@@ -20,6 +20,7 @@ import Wishlist from './User/products/Wishlist';
 import toast, { Toaster } from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import { Select_admin_status } from './Redux/ItemSlice';
+import ErrorPage from './ErrorPage';
 
 
 
@@ -32,7 +33,7 @@ function App() {
       <BrowserRouter>
       <Toaster position="top-center"/>  
       <Routes>
-      <Route path='/adminhome' element= {<AdminHome/>}/>
+     
       {/* ------------------------user side------------------------ */}
       <>
       <Route path='/' element ={<Home/>}/>
@@ -43,20 +44,21 @@ function App() {
       <Route path='/details/:id' element ={<ProductDetails/>}/>
       <Route path='/cart' element ={<Cart/>}/>
       <Route path='/wishlist' element ={<Wishlist/>}/>
+      <Route path='/*' element ={<ErrorPage/>}/>
       {/* <Navbar/> */}
       </>
 
       {/* ------------------------Admin side------------------------ */}
       {isAdmin? 
         <>
-      {/* <Route path='/adminhome' element= {<AdminHome/>}/> */}
+      <Route path='/adminhome' element= {<AdminHome/>}/>
       <Route path='/adproduct' element ={<AdProduct/>}/>
       <Route path='/allproducts' element ={<AllProducts/>}/>
       <Route path="/adminedit/:productId" element={<AdminEdit />} /> 
    
       <Route path='/users' element={<Users />} />
       </>
-       : ""}
+       : "*"}
       </Routes>
       </BrowserRouter>
     </div>

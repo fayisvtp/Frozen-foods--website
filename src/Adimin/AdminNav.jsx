@@ -38,7 +38,7 @@ export default function AdminNav() {
               </Link>
             </MDBBreadcrumbItem>
             <MDBBreadcrumbItem active aria-current='page'>
-              <a onClick={handleLogout}  className="btn bg-none">Logout</a>
+              <Link onClick={handleLogout}  >Logout</Link>
             </MDBBreadcrumbItem>
           </MDBBreadcrumb>
         </nav>

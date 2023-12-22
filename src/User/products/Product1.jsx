@@ -29,13 +29,13 @@ function Product1() {
 
           <Grid container justifyContent="center"  spacing={2}>
             <Grid  item>
-              <Link to={'/'} className="veg text-light text-decoration-none me-4">
+              <Link to={'/veg'} className="veg text-light text-decoration-none me-4">
                 <p className=" mt-2">Veg</p>
               </Link>
             </Grid>
 
             <Grid item>
-              <Link to={'/'} className="text-light text-decoration-none">
+              <Link to={'/non-veg'} className="text-light text-decoration-none">
                 <p className="mt-2">Non-Veg</p>
               </Link>
             </Grid>

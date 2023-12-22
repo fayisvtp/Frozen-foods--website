@@ -21,6 +21,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import { Select_admin_status } from './Redux/ItemSlice';
 import ErrorPage from './ErrorPage';
+import Veg from './User/products/Veg';
 
 
 
@@ -44,6 +45,7 @@ function App() {
       <Route path='/details/:id' element ={<ProductDetails/>}/>
       <Route path='/cart' element ={<Cart/>}/>
       <Route path='/wishlist' element ={<Wishlist/>}/>
+      <Route path='/veg' element ={<Veg/>}/>
       <Route path='/*' element ={<ErrorPage/>}/>
       {/* <Navbar/> */}
       </>

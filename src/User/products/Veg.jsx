@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import vdo from '/coding/Projects/frostybytes/src/assets/veg.mp4';
+import vdo from '../../assets/veg.mp4';
 import { Grid} from '@mui/material';
 import { selectProduct, selectUserToken, setProducts } from '../../Redux/ItemSlice';
 import { useDispatch, useSelector } from 'react-redux';

@@ -13,9 +13,9 @@ import {
   MDBTable,
   MDBTableBody,
 } from "mdb-react-ui-kit";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import SocialMedia from "../SocialMedia";
+
 
 function Cart() {
   const userId = useSelector(SelectUserId);

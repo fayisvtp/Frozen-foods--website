@@ -125,6 +125,7 @@ function Veg() {
                     fluid
                     className="w-100"
                     style={{ borderRadius: '0' }}
+                    alt={item.title}
                   />
 
                   <div

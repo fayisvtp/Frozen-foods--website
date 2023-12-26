@@ -11,7 +11,7 @@ function AllProducts() {
   console.log("tokenn", token);
   const products = useSelector(selectProduct);
   const dispatch = useDispatch();
-  const [updatedProductData, setUpdatedProductData] = useState(null);
+  const [updatedProductData,] = useState(null);
   const apiKey = process.env.REACT_APP_ACCESS_KEY;
   const getAllProducts = async (token) => {
     try {

@@ -4,7 +4,7 @@
 
 
 import React from 'react';
-import tomato from '/coding/Projects/frostybytes/src/assets/tomato.png';
+import tomato from '../../assets/tomato.png';
 
 const SmallCardList = () => {
   const iconsData = [

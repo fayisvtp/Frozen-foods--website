@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import GroupIcon from "@mui/icons-material/Group";
 import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantityLimits";
 import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
-import AdminNav from "./AdminNav";
 import bgvideo from '../assets/bg-video.mp4';
 import { Link } from "react-router-dom";
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';

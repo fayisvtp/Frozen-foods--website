@@ -11,13 +11,13 @@ import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import imagee from '/coding/Projects/frostybytes/src/assets/frozen2.jpg';
-import profile1 from '/coding/Projects/frostybytes/src/assets/profile1.jpg';
-import profile2 from '/coding/Projects/frostybytes/src/assets/user-1.jpg'
-import profile3 from '/coding/Projects/frostybytes/src/assets/user-2.jpeg'
-import imagee2 from '/coding/Projects/frostybytes/src/assets/family.jpg'
-import imagee3 from '/coding/Projects/frostybytes/src/assets/frozen3.jpg'
-import  imagee4 from '/coding/Projects/frostybytes/src/assets/abc.jpeg'
+import imagee from '../assets/frozen2.jpg';
+import profile1 from '../assets/profile1.jpg';
+import profile2 from '../assets/user-1.jpg'
+import profile3 from '../assets/user-2.jpeg'
+import imagee2 from '../assets/family.jpg'
+import imagee3 from '../assets/frozen3.jpg'
+import  imagee4 from '../assets/abc.jpeg'
 
 
 

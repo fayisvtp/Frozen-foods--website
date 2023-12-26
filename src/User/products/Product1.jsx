@@ -2,8 +2,7 @@ import React from "react";
 import "./Product1.css";
 import { Link } from 'react-router-dom';
 import { Grid } from '@mui/material';
-import cook from "/coding/Projects/frostybytes/src/assets/cook.jpg";
-
+import cookImage from "../../assets/cook.jpg";
 
 import SmallCardlist from "./SmallCardslist";
 import PopularProducts from "./PopularProducts";
@@ -14,7 +13,7 @@ function Product1() {
     <>
     <Navbar/>
      <Grid container className="headimg p-5 text-center bg-image" style={{
-      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${cook})`,
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${cookImage})`,
       height: 'auto',
     }}>
       <Grid item xs={12} className="text mt-5 mb-5 text-align-center text-light">

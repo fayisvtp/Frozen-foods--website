@@ -1,6 +1,6 @@
 import React from 'react';
 import PortionImage from '../assets/Portion.jpg'
-import pic2 from '/coding/Projects/frostybytes/src/assets/Staff Training and Communication.jpg'
+import Staff from '../assets/Staff.jpg'
 
 const FoodCost = () => {
   return (
@@ -99,7 +99,7 @@ const FoodCost = () => {
           <div className="card shadow">
             <img
               className="w-100 border-bottom"
-              src={pic2}
+              src={Staff}
               alt="services"
               style={{borderRadius:'0'}}
             />

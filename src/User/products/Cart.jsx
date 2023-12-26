@@ -11,7 +11,6 @@ import Navbar from "../../component/Navbar";
 import {
   MDBBtn,
   MDBTable,
-  MDBTableHead,
   MDBTableBody,
 } from "mdb-react-ui-kit";
 import { Link, useNavigate } from "react-router-dom";
@@ -156,7 +155,7 @@ function Cart() {
   <div className="col-6 ">
 
   </div>
-  <SocialMedia/>
+  {/* <SocialMedia/> */}
 </div>
     </>
   );

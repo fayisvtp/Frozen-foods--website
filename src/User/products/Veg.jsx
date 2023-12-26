@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 import vdo from '/coding/Projects/frostybytes/src/assets/veg.mp4';
-import cook from '/coding/Projects/frostybytes/src/assets/veg.png';
+import { Grid} from '@mui/material';
 import { selectProduct, selectUserToken, setProducts } from '../../Redux/ItemSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import instance from './AxiosInstance/AxiosInstance';
@@ -13,7 +12,7 @@ function Veg() {
   const token = useSelector(selectUserToken);
   const products = useSelector(selectProduct);
   const dispatch = useDispatch();
-  const [updatedProductData, setUpdatedProductData] = useState(null);
+  const [updatedProductData] = useState(null);
   const apiKey = process.env.REACT_APP_ACCESS_KEY;
   const dealerToken = token;
 
@@ -80,7 +79,7 @@ function Veg() {
             width: '100%',
             height: '100%',
             background: 'linear-gradient(to right top, #0a5c36, #0f5335, #134a33, #174230, #1a392d, #1a372c, #1b362b, #1b342a, #19382c, #183c2d, #16412e, #14452f)',
-            opacity: 0.6,  // Adjust the opacity as needed
+            opacity: 0.8,  // Adjust the opacity as needed
             zIndex: 1,
           }}
         />
@@ -96,7 +95,7 @@ function Veg() {
 
               <Grid container justifyContent="center" spacing={2}>
                 <Grid item>
-                    <p className=" mt-2 text-yellow">Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br/> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br/>  when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <p className=" mt-2 text-warning">Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br/> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br/>  when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                 </Grid>
 
         
@@ -107,56 +106,58 @@ function Veg() {
       </Grid>
 
 {/* ***************************************************************************************************************** */}
-      <div>
-        <MDBContainer fluid className="my-5 text-center popularproductss">
-          <MDBRow>
-            <h1 style={{ color: 'white' }}>Future Products</h1>
-            {data.map((item) => (
-              <MDBCol key={item._id} md="12" lg="4" className="mb-4 p-5">
-                <Link to={`/details/${item._id}`}>
-                  <MDBRipple
-                    rippleColor="dark"
-                    rippleTag="div"
-                    className="bg-image rounded hover-zoom shadow-1-strong"
-                    style={{ height: '240px', width: '350px' }}
-                  >
-                    <img
-                      src={item.image}
-                      fluid
-                      className="w-100"
-                      style={{ borderRadius: '0' }}
-                    />
+<div>
+<MDBContainer fluid className="my-5 text-center popularproductss">
+        <MDBRow>
+          <h1 style={{color:'white'}}>Frozen Vegetables</h1>
+          {data.map((item) => (
+            <MDBCol key={item._id} md="12" lg="4" className="mb-4 p-5">
+              <Link to={`/details/${item._id}`}>
+                {/* Wrap the content with Link */}
+                <MDBRipple
+                  rippleColor="dark"
+                  rippleTag="div"
+                  className="bg-image rounded hover-zoom shadow-1-strong"
+                  style={{ height: "240px", width: "350px" }}
+                >
+                  <img
+                    src={item.image}
+                    fluid
+                    className="w-100"
+                    style={{ borderRadius: '0' }}
+                  />
 
+                  <div
+                    className="mask"
+                    style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
+                  >
+                    <div className="d-flex justify-content-start align-items-start h-100">
+                      <h5>
+                        <span className="badge bg-light pt-2 ms-3 mt-3 text-dark">
+                          ₹{item.price}
+                        </span>
+                      </h5>
+                    </div>
+                  </div>
+                  <div className="hover-overlay">
+                    <h5 className="text-success ">
+                      <span>{item.title}</span>
+                    </h5>
                     <div
                       className="mask"
-                      style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}
-                    >
-                      <div className="d-flex justify-content-start align-items-start h-100">
-                        <h5>
-                          <span className="badge bg-light pt-2 ms-3 mt-3 text-dark">
-                            ₹{item.price}
-                          </span>
-                        </h5>
-                      </div>
-                    </div>
-                    <div className="hover-overlay">
-                      <h5 className="text-success ">
-                        <span>{item.title}</span>
-                      </h5>
-                      <div
-                        className="mask"
-                        style={{
-                          backgroundColor: 'rgba(251, 251, 251, 0.15)',
-                        }}
-                      ></div>
-                    </div>
-                  </MDBRipple>
-                </Link>
-              </MDBCol>
-            ))}
-          </MDBRow>
-        </MDBContainer>
-      </div>
+                      style={{
+                        backgroundColor: 'rgba(251, 251, 251, 0.15)',
+                      }}
+                    ></div>
+                  </div>
+                </MDBRipple>
+              </Link>
+            </MDBCol>
+          ))}
+        </MDBRow>
+      </MDBContainer>
+
+        </div>
     </>
   );
 }

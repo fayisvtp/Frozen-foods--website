@@ -1,7 +1,6 @@
 
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import LoginAdmin from './Adimin/LoginAdmin';
 // import './App.css'
 import Home from './component/Home';
 import AdminHome from './Adimin/AdminHome';

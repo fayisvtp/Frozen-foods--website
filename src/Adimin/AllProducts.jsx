@@ -112,7 +112,7 @@ function AllProducts() {
 
 export default AllProducts;
 
-// import React, { useEffect, useState } from "react";
+
 // import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
 // import axios from "axios";
 // import { useDispatch, useSelector } from "react-redux";

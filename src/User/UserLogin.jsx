@@ -7,7 +7,7 @@ import {
   }
   from 'mdb-react-ui-kit';
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import instance from "./products/AxiosInstance/AxiosInstance";
 import { setUserToken} from "../Redux/ItemSlice";
 import {setUserId,setToken,setAdmin} from "../Redux/ItemSlice"
@@ -18,7 +18,7 @@ function UserLogin() {
     // const isSignIn = useSelector((state)=> state.product.isSignIn)
 
     const [state,setstate] = useState("")
-    const [name,setName] = useState("")
+    // const [name,setName] = useState("")
     const dispatch = useDispatch ()
     const navigate = useNavigate()
     

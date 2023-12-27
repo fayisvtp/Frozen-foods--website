@@ -50,41 +50,46 @@ const data = [
     image: model3,
     star:'⭐⭐⭐⭐'
   },
-  // Add more card data as needed
+
 ];
 
 const Carousel = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed:500,
-    slidesToShow: 3,
+    speed: 500,
+    slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 2000,
   };
 
   return (
-    <div className="card_container" >
-        <div className='heading_div'>
-            <h1 className='heading_card'>
-         <span style={{color:"red"}} >What Our Clients</span><br />
-         <span>Say About Us</span>    
-                
-                </h1>
+    <div className="container mt-5"> 
+      <div className="row">
+        <div className="col-lg-12">
+          <div className="card_container">
+            <div className='heading_div'>
+              <h1 className='heading_card'>
+                <span style={{ color: "red" }}>What Our Clients</span><br></br>
+                <span>Say About Us</span>
+              </h1>
             </div>
-    <Slider {...settings}>
-      {data.map((card) => (
-        <div key={card.id}>
-          <div className="card">
-            <img className='image_person' src={card.image} alt={card.title} />
-            <h1>{card.title}</h1>
-            <h4>{card.star}</h4>
-            <p>{card.description}</p>
+            <Slider {...settings}>
+              {data.map((card) => (
+                <div key={card.id} className="col-lg-6 mb-4"> 
+                  <div className="card">
+                    <img className='image_person' src={card.image} alt={card.title} />
+                    <h1>{card.title}</h1>
+                    <h4>{card.star}</h4>
+                    <p>{card.description}</p>
+                  </div>
+                </div>
+              ))}
+            </Slider>
           </div>
         </div>
-      ))}
-    </Slider>
+      </div>
     </div>
   );
 };

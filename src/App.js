@@ -10,7 +10,7 @@ import AdminEdit from './Adimin/AdminEdit';
 import Product1 from './User/products/Product1';
 import Register from './User/products/Register';
 import UserLogin from './User/UserLogin';
-import FoodCost from './component/FoodCost';
+// import FoodCost from './component/FoodCost';
 import Users from './Adimin/Users';
 import ProductDetails from './User/ProductDetails';
 import Cart from './User/products/Cart';
@@ -40,7 +40,7 @@ function App() {
       <Route path='/register' element ={<Register/>}/>
       <Route path='product1' element ={<Product1/>}/>
       <Route path='/userlogin' element ={<UserLogin/>}/>
-      <Route path='/foodcost' element ={<FoodCost/>}/>
+      {/* <Route path='/foodcost' element ={<FoodCost/>}/> */}
       <Route path='/details/:id' element ={<ProductDetails/>}/>
       <Route path='/cart' element ={<Cart/>}/>
       <Route path='/wishlist' element ={<Wishlist/>}/>

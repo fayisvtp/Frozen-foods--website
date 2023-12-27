@@ -31,11 +31,11 @@ function Banner() {
         </div>
         <div>
           {/* <div></div> */}
-          <div>
+          {/* <div>
           <Link to="/foodcost">
             <button className="btn_2 ">How to manage Food cost</button> 
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="div-2">

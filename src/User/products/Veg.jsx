@@ -70,7 +70,7 @@ function Veg() {
             zIndex: 0,
           }}
         />
-          <div
+        <div
           className="gradient-overlay"
           style={{
             position: 'absolute',
@@ -78,87 +78,72 @@ function Veg() {
             left: 0,
             width: '100%',
             height: '100%',
-            background: 'linear-gradient(to right top, #0a5c36, #0f5335, #134a33, #174230, #1a392d, #1a372c, #1b362b, #1b342a, #19382c, #183c2d, #16412e, #14452f)',
-            opacity: 0.8,  // Adjust the opacity as needed
+            background:
+              'linear-gradient(to right top, #0a5c36, #0f5335, #134a33, #174230, #1a392d, #1a372c, #1b362b, #1b342a, #19382c, #183c2d, #16412e, #14452f)',
+            opacity: 0.8, // Adjust the opacity as needed
             zIndex: 1,
           }}
         />
 
-        <div className='container text-center' style={{ zIndex: 1 }}>
-          <Grid item xs={12} className="text mt-5 mb-5 text-align-center text-light">
-            <h1 className="freshness">
-              Deliciously Perfection:<br /> Explore Our <br /> Premium Vegetables
-            </h1>
-
-            <div>
-             
-
-              <Grid container justifyContent="center" spacing={2}>
-                <Grid item>
-                    <p className=" mt-2 text-warning">Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br/> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br/>  when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                </Grid>
-
-        
-              </Grid>
-            </div>
-          </Grid>
+        <div className="container text-center" style={{ zIndex: 1 }}>
+        <Grid item xs={12} sm={10} md={10} lg={5}>
+  <h1 className="veg_heading text-light" style={{ fontSize: '60px' }}>
+    Deliciously Perfection:<br /> Explore Our <br /> Premium Vegetables
+  </h1>
+</Grid>
         </div>
       </Grid>
 
-{/* ***************************************************************************************************************** */}
-<div>
-<MDBContainer fluid className="my-5 text-center popularproductss">
-        <MDBRow>
-          <h1 style={{color:'white'}}>Frozen Vegetables</h1>
-          {data.map((item) => (
-            <MDBCol key={item._id} md="12" lg="4" className="mb-4 p-5">
-              <Link to={`/details/${item._id}`}>
-                {/* Wrap the content with Link */}
-                <MDBRipple
-                  rippleColor="dark"
-                  rippleTag="div"
-                  className="bg-image rounded hover-zoom shadow-1-strong"
-                  style={{ height: "240px", width: "350px" }}
-                >
-                  <img
-                    src={item.image}
-                    fluid
-                    className="w-100"
-                    style={{ borderRadius: '0' }}
-                    alt={item.title}
-                  />
+      <MDBContainer fluid className="my-5 text-center popularproductss">
+  <MDBRow>
+    <h1 style={{ color: 'white' }}>Frozen Vegetables</h1>
+    {data.map((item) => (
+      <MDBCol key={item._id} xs="12" sm="6" md="4" lg="4" className="mb-4 p-3">
+        <Link to={`/details/${item._id}`}>
+          <MDBRipple
+            rippleColor="dark"
+            rippleTag="div"
+            className="bg-image rounded hover-zoom shadow-1-strong"
+            style={{ height: "240px", maxWidth: "350px", margin: '0 auto' }}
+          >
+            <img
+              src={item.image}
+              fluid
+              className="w-100"
+              style={{ borderRadius: '0' }}
+              alt={item.title}
+            />
 
-                  <div
-                    className="mask"
-                    style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
-                  >
-                    <div className="d-flex justify-content-start align-items-start h-100">
-                      <h5>
-                        <span className="badge bg-light pt-2 ms-3 mt-3 text-dark">
-                          ₹{item.price}
-                        </span>
-                      </h5>
-                    </div>
-                  </div>
-                  <div className="hover-overlay">
-                    <h5 className="text-success ">
-                      <span>{item.title}</span>
-                    </h5>
-                    <div
-                      className="mask"
-                      style={{
-                        backgroundColor: 'rgba(251, 251, 251, 0.15)',
-                      }}
-                    ></div>
-                  </div>
-                </MDBRipple>
-              </Link>
-            </MDBCol>
-          ))}
-        </MDBRow>
-      </MDBContainer>
+            <div
+              className="mask"
+              style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
+            >
+              <div className="d-flex justify-content-start align-items-start h-100">
+                <h5>
+                  <span className="badge bg-light pt-2 ms-3 mt-3 text-dark">
+                    ₹{item.price}
+                  </span>
+                </h5>
+              </div>
+            </div>
+            <div className="hover-overlay">
+              <h5 className="text-success ">
+                <span>{item.title}</span>
+              </h5>
+              <div
+                className="mask"
+                style={{
+                  backgroundColor: 'rgba(251, 251, 251, 0.15)',
+                }}
+              ></div>
+            </div>
+          </MDBRipple>
+        </Link>
+      </MDBCol>
+    ))}
+  </MDBRow>
+</MDBContainer>
 
-        </div>
     </>
   );
 }

@@ -86,7 +86,7 @@ function Veg() {
         />
 
         <div className="container text-center" style={{ zIndex: 1 }}>
-        <Grid item xs={12} sm={10} md={10} lg={5}>
+        <Grid item xs={12} sm={10} md={10} lg={13}>
   <h1 className="veg_heading text-light" style={{ fontSize: '60px' }}>
     Deliciously Perfection:<br /> Explore Our <br /> Premium Vegetables
   </h1>

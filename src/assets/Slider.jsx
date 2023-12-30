@@ -58,21 +58,21 @@ const Carousel = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 2,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
   };
 
   return (
-    <div className="container mt-5"> 
+    <div className="container  mt-5"> 
       <div className="row">
         <div className="col-lg-12">
           <div className="card_container">
             <div className='heading_div'>
               <h1 className='heading_card'>
-                <span style={{ color: "red" }}>What Our Clients</span><br></br>
-                <span>Say About Us</span>
+              What Our Clients<br></br>
+                Say About Us
               </h1>
             </div>
             <Slider {...settings}>

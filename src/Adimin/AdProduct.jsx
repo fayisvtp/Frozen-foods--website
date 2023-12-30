@@ -4,10 +4,11 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
-import { selectToken } from "../Redux/ItemSlice";
+import { selectToken, setProducts } from "../Redux/ItemSlice";
 import instance from "../User/products/AxiosInstance/AxiosInstance";
 
 const AdProduct = () => {
+
   const token = useSelector(selectToken);
   console.log(token)
 
@@ -40,6 +41,7 @@ const AdProduct = () => {
 
       if (status === "success") {
         console.log("Product added. Product details:", data);
+    
         alert("product added")
       } else {
         console.error("Product addition failed. Message:", message);

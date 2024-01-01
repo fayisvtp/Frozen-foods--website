@@ -13,6 +13,9 @@ import instance from "./products/AxiosInstance/AxiosInstance";
 import { setUserToken} from "../Redux/ItemSlice"; 
 import {setUserId,setToken,setAdmin} from "../Redux/ItemSlice"
 import toast from "react-hot-toast";
+import { GoogleLogin } from '@react-oauth/google';
+import {jwtDecode} from "jwt-decode";
+
 
 function UserLogin() {
 
@@ -57,6 +60,8 @@ function UserLogin() {
       console.log(response.data);
       const token = data.token
       if (status === "success") {
+      
+
         dispatch(setToken(token));
         dispatch(setAdmin(true));
         navigate("/adminhome");
@@ -115,6 +120,11 @@ function UserLogin() {
       console.error(`token${accessKey}`, error.message);
     }
   }
+  // const onSuccess = async (res) => {
+  //   const decoded = jwtDecode(res.credential);
+  //   setAccount(decoded);
+  //   await addUser(decoded);
+  // };
  
 // *****************************************************************************************************
 
@@ -138,6 +148,22 @@ function UserLogin() {
           />
 
           <MDBBtn type="submit" className="mb-4 w-100">Sign in</MDBBtn>
+          
+          <div className="text-center" >
+          <GoogleLogin
+  
+  onSuccess={credentialResponse => {
+    console.log(credentialResponse);
+    dispatch(setUserToken(credentialResponse.credential)); 
+    dispatch(setUserId(credentialResponse.clientId)); 
+    navigate("/")
+  }}
+  onError={() => {
+    console.log('Login Failed');
+  }}
+/>;
+          </div>
+         
 
           <div className="text-center">
             <p className="notamembar text-white mb-0">

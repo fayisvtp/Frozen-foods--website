@@ -8,6 +8,7 @@ import { faAppleAlt } from "@fortawesome/free-solid-svg-icons";
 import { faFish,faMedal   } from "@fortawesome/free-solid-svg-icons";
 import img1 from '../assets/frozen3.jpg'
 import img2 from '../assets/non-veg.jpg'
+import home from '../assets/homeimg.png'
 import Navbar from "./Navbar"
 import { Link } from "react-router-dom";
 
@@ -71,7 +72,7 @@ export default function Home() {
 
         <div className="col-md-5 d-flex justify-content-end align-items-end">
           <div className="col-12 ">
-            <img className=" pizza-img img-fluid  " src={pizza} alt="pizza" />
+            <img className="pizza-img img-fluid  " src={pizza} alt="pizza" />
           </div>
         </div>
       </div>
@@ -119,7 +120,7 @@ export default function Home() {
           <div className="col-12 col-md-6 mb-3">
           <Link to={"/product1"}>
             <div className="carrd position-relative h-50">
-              <img src={img1} alt="" className="w-100 h-100 object-fit-cover" />
+              <img src={img1} alt="" className="w-100 h-100 object-fit-cover" style={{borderRadius:'0'}} />
               <div className="card-text position-absolute top-50 start-50 translate-middle text-light text-center w-100">
                 <h1 className="mb-3">Category 1</h1>
                 <p className="mb-0">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
@@ -132,7 +133,7 @@ export default function Home() {
           <div className="col-12 col-md-6 mb-3">
           <Link to={"/veg"}>
             <div className="carrd position-relative h-50">
-              <img src={img2} alt="" className="w-100 h-100 object-fit-cover" />
+              <img src={img2} alt="" className="w-100 h-100 object-fit-cover" style={{borderRadius:'0'}} />
               <div className="card-text position-absolute top-50 start-50 translate-middle text-light text-center w-100">
                 <h1 className="mb-3">Category 2</h1>
                 <p className="mb-0">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
@@ -172,7 +173,7 @@ export default function Home() {
       </div>
   </div>
 </section>
-
+{/* <Carousel/> */}
     </div>
     </>
   );

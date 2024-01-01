@@ -4,10 +4,13 @@
   height: auto;
   width: 100%;
   background-image: linear-gradient(to left bottom, #e90000, #bf000b, #95000e, #6c000a, #460000);
+  
+   /* background-image: linear-gradient(to right top, #093705, #1b4809, #2e5a0b, #436c0b, #5a7e09); */
+  
 }
 .pizza-img{
  
-  height:auto;
+  height:200px;
   filter: drop-shadow( 4px 10px 10px rgba(0,0,0,0.3));
   filter: brightness(4px 10px 10px);
   
@@ -34,6 +37,7 @@
   padding: 10px;
   box-shadow: #460000;
   background-image: linear-gradient(to left bottom, #e90000, #bf000b, #95000e, #6c000a, #460000);
+  /* background-image: linear-gradient(to right top, #093705, #1b4809, #2e5a0b, #436c0b, #5a7e09); */
   border-radius: 1%;
 }
 .box-1:hover{

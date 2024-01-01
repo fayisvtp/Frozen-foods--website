@@ -25,6 +25,7 @@ function Cart() {
   // const [cartItems, setCartItems] = useState([]);
   const[cartItems,setCartItems] = useState([])
   const nav = useNavigate()
+  
   const viewCart = async (userId, token) => {
     try {
       const response = await instance.get( `/users/${userId}/cart`, {

@@ -1,57 +1,82 @@
-/* 
-*{
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
-} */
 
-/* General styles */
-
-/*
-* Created with https://www.css-gradient.com
-* Gradient link: https://www.css-gradient.com/?c1=ffc536&c2=fffbf5&gt=r&gd=dtl
-*/
-
-/* .box {
-    display: flex;
-    justify-content: space-between;
-  
-    background-color:radial-gradient(
-        at left top, #FFC536, #FFFBF5
-        
-);
-    height: auto;
-  } */
-  
-  /* .img-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  } */
-  
-  /* .model-1 {
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-basis: 70%;
-    
-  } */
-  
-  /* .text-1 {
-   display: flex;
-flex-wrap: wrap;
-    
-    padding: 20px;
-  } */
+.home{
+   
+  height: auto;
+  width: 100%;
+  background-image: linear-gradient(to left bottom, #e90000, #bf000b, #95000e, #6c000a, #460000);
+}
+.pizza-img{
  
-  /* .model-1 img {
-    width: 900px; 
-    max-width: 500px;
-    height: auto;
-    object-fit: cover;
-  } */
+  height:auto;
+  filter: drop-shadow( 4px 10px 10px rgba(0,0,0,0.3));
+  filter: brightness(4px 10px 10px);
   
+}
+.heading{
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  font-size: 90px;
+}
+.heading_btn-1{
+  height: 10px;
+  width: 18vh;
+}
+.explore{
+  background-color: rgb(173, 104, 0);
+
+}
+.arrow_btn{
+  width: 50vh;
+}
+.box-1{
+ 
+  height: auto;
+  padding: 10px;
+  box-shadow: #460000;
+  background-image: linear-gradient(to left bottom, #e90000, #bf000b, #95000e, #6c000a, #460000);
+  border-radius: 1%;
+}
+.box-1:hover{
+  background-image: linear-gradient(to right top, #fbfbfb, #f9f9f9, #f7f8f7, #f6f6f6, #f4f4f4);
+}
+.headingIcon{
+  color: #f6f6f6;
+
+}
+.headingIcon:hover{
+  color: rgb(125, 0, 0);
+}
+
+.carrd {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1%;
+}
+
+.carrd::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value for the desired transparency */
+}
+
+.card-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
+.card-text h1,
+.card-text p {
+  color: #fff; /* Text color for the overlay */
+}
+/* 
   
   @media screen and (max-width: 768px) {
     .box {
@@ -119,7 +144,7 @@ padding: 10px;
    min-height: 300px;
    max-width: 400px;
   cursor: pointer;
-  /* transition: background-color 0.4s, color 0.4s, height 0.4s, width 0.4s; */
+  
     
  }
  .para_1_text{
@@ -130,4 +155,4 @@ padding: 10px;
     background-color:#618264;
     color: white;
 
- }
+ } */

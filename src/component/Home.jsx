@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 import pizza from "../assets/pizza.png";
+import pizza2 from "../assets/pizza2.png"
 import { IoIosArrowForward } from "react-icons/io";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPepperHot } from '@fortawesome/free-solid-svg-icons';
@@ -150,7 +151,7 @@ export default function Home() {
   <div className="row flex-column-reverse flex-md-row p-3">
   <div className="col-md-5 d-flex justify-content-end align-items-end">
           <div className="col-12 ">
-            <img className=" pizza-img img-fluid  " src={pizza} alt="pizza" />
+            <img className=" pizza-img img-fluid  " src={pizza2} alt="pizza" />
           </div>
         </div>
         <div className="col-md-7 d-flex align-items-center">

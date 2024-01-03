@@ -21,6 +21,7 @@ import { useSelector } from 'react-redux';
 import { Select_admin_status } from './Redux/ItemSlice';
 import ErrorPage from './ErrorPage';
 import Veg from './User/products/Veg';
+import ResetPassword from './User/ResetPassword';
 
 
 
@@ -40,6 +41,7 @@ function App() {
       <Route path='/register' element ={<Register/>}/>
       <Route path='product1' element ={<Product1/>}/>
       <Route path='/userlogin' element ={<UserLogin/>}/>
+      <Route path='/resetpassword' element ={<ResetPassword/>}/>
       {/* <Route path='/foodcost' element ={<FoodCost/>}/> */}
       <Route path='/details/:id' element ={<ProductDetails/>}/>
       <Route path='/cart' element ={<Cart/>}/>
